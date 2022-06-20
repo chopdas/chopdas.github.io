@@ -1,5 +1,3 @@
-## Aarti
-
 ## Background
 
 આરતિ

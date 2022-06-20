@@ -1,4 +1,4 @@
-# Panch Maha Vratas
+
 
 1.  અહિંમસા - voilence-free
 2.  સત્ય - falsehood-free
@@ -27,6 +27,7 @@ For layman, the above constitues 12 vows
 	- 3 ગુણ વ્રત
 	- 4 શીક્ષા વ્રત
     
+
 Jin meditates upon ૪ ભાવ (virtues) based on the observance of મહાવ્રત
 1.  મૈત્રી - friends of all
 2.  પ્રમોદ - delight at sight of better qualified individuals on the path
@@ -38,7 +39,7 @@ Jin meditates upon ૪ ભાવ (virtues) based on the observance of મહા�
 - મધ્ય વિરતિ - wine
 - મામસા વિરતિ- meat
 - મધુ વિરતિ - honey
-    
+  
 > On top of the 12 vows, additionally to embrace death voluntarily - the last moments of life is the સલેકના process (સમાધી મરન)
 - Embrace death voluntarily on the arrival of unavoidable calamity, distress, old age and disease, with a view to increase spiritual merit, being in peace at all times during the process
 - Overcome all the passions and abandon all the worldly attachments by gradually abstaining from the food and the water and simultaneously meditating on the true nature of the Self until the soul parts the body.

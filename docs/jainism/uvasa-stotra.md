@@ -1,5 +1,3 @@
-## Uvasaggaharam Stotra
-
 **Composer**: Shree Bhadrabahu Swami.
 
 **Period**: 2100 years ago.
