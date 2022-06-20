@@ -1,0 +1,1809 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>OpenSSL - Chopdas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#open-ssl" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../.."> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chopdas" class="md-header__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chopdas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenSSL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gradle/" class="md-tabs__link md-tabs__link--active">
+        Developer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../jainism/aarti/" class="md-tabs__link">
+        Jainism
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        Tags
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chopdas" class="md-nav__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chopdas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" data-md-state="indeterminate" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradle/" class="md-nav__link">
+        Gradle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maven/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenSSL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OpenSSL
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ways-to-present-a-certificate" class="md-nav__link">
+    Ways to present a certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-transformations" class="md-nav__link">
+    Types and Transformations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-openssl" class="md-nav__link">
+    Install OpenSSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-ssl-certificate-of-a-url" class="md-nav__link">
+    Test SSL Certificate of a URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-root-ca" class="md-nav__link">
+    Setup Root CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-ca-private-key" class="md-nav__link">
+    Generate Root CA Private Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-ca-certificate" class="md-nav__link">
+    Generate Root CA Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-csr-and-sign-it-to-generate-root-ca-certificate" class="md-nav__link">
+    Generate Root CSR and sign it to generate Root CA Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-root-ca-public-key" class="md-nav__link">
+    Extract Root CA Public Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-self-signed-certificate" class="md-nav__link">
+    Generate self-signed Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-ca" class="md-nav__link">
+    Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-intermediate-ca" class="md-nav__link">
+    Generate Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-commands" class="md-nav__link">
+    Other Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-server-certificate-using-intermediate-ca" class="md-nav__link">
+    Sign Server Certificate using Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-certificate" class="md-nav__link">
+    Client Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digest" class="md-nav__link">
+    Digest
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jainism
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jainism" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jainism
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/aarti/" class="md-nav__link">
+        Aarti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/logassa-stotra/" class="md-nav__link">
+        Logassa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/uvasa-stotra/" class="md-nav__link">
+        Uvasa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/samitis-guptis/" class="md-nav__link">
+        Samitis and Guptis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/panch-maha-vratas/" class="md-nav__link">
+        Panch Maha Vratas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tags
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tags" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tags
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        Tags index
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ways-to-present-a-certificate" class="md-nav__link">
+    Ways to present a certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-and-transformations" class="md-nav__link">
+    Types and Transformations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-openssl" class="md-nav__link">
+    Install OpenSSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-ssl-certificate-of-a-url" class="md-nav__link">
+    Test SSL Certificate of a URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-root-ca" class="md-nav__link">
+    Setup Root CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-ca-private-key" class="md-nav__link">
+    Generate Root CA Private Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-ca-certificate" class="md-nav__link">
+    Generate Root CA Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-root-csr-and-sign-it-to-generate-root-ca-certificate" class="md-nav__link">
+    Generate Root CSR and sign it to generate Root CA Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-root-ca-public-key" class="md-nav__link">
+    Extract Root CA Public Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-self-signed-certificate" class="md-nav__link">
+    Generate self-signed Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-ca" class="md-nav__link">
+    Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-intermediate-ca" class="md-nav__link">
+    Generate Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-commands" class="md-nav__link">
+    Other Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-server-certificate-using-intermediate-ca" class="md-nav__link">
+    Sign Server Certificate using Intermediate CA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-certificate" class="md-nav__link">
+    Client Certificate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#digest" class="md-nav__link">
+    Digest
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  
+
+
+
+<h1 id="open-ssl">Open SSL</h1>
+<h2 id="ways-to-present-a-certificate">Ways to present a certificate</h2>
+<ul>
+<li>PEM - Privacy Enhanced Mail is a base-64 encoded format.</li>
+<li>Can include public certs, public keys, entire chain, and private keys</li>
+<li>May contain a CSR in PKCS10 format</li>
+<li>Can be put inside email body</li>
+<li>Has a <code>BEGIN CERTIFICATE</code> and <code>END CERTIFICATE</code>.</li>
+<li>DER is the parent of PEM and in a binary format.</li>
+<li>PKCS7 is used by Java and doesn't contain private key.</li>
+<li>PKCS12 is used by windows and can contain private key.</li>
+</ul>
+<h2 id="types-and-transformations">Types and Transformations</h2>
+<ul>
+<li>x509 v3 is RFC 5280</li>
+<li>File Extensions:</li>
+<li>DER is binary and contains raw format using asn.1 encoding</li>
+<li>PEM is ascii and contains base64 encoding using begin / end</li>
+<li>CRT is extension for certificates and MS format. This may be encoded as DER or PEM.</li>
+<li>CER is synonym for CRT</li>
+<li>KEY is used for both public and private PKCS#8 keys and may be encoded as DER or PEM.</li>
+<li>PKCS#7 is a complex format design for transport of signed or encrypted data</li>
+<li>Defined RFC 2315. Usually .p7b and .p7c extension. Supported by java keytool.</li>
+<li>contains --BEGIN PKCS line</li>
+<li>contains only certs, chain certs</li>
+<li>doesn't contain private keys</li>
+<li>base64 encoded ascii file</li>
+<li>PKCS#12 - binary format to store and protect server key along with entire chain</li>
+<li>.pfx, .p12</li>
+<li>stores server certs, any intermediate certs, private key in one encrypted file</li>
+<li>used to import into browser</li>
+<li>used to convert into jks using keytool</li>
+<li>PKCS#8 is a newer and recommended format for RSA keys</li>
+</ul>
+<h2 id="install-openssl">Install OpenSSL</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># install</span>
+brew update
+brew install openssl
+
+brew cask install keystore-explorer
+
+<span class="c1"># upgrade</span>
+mv /usr/bin/openssl /usr/bin/openssl_old
+brew unlink openssl
+brew link -force openssl
+ln -s /usr/local/Cellar/../openssl /usr/bin/openssl
+
+<span class="c1"># validate</span>
+openssl version -a
+which openssl
+
+<span class="c1"># building</span>
+wget http://www.openssl.org.source/openssl-.tar.gz ./config --prefix<span class="o">=</span>/opt/openssl --openssldir<span class="o">=</span>/opt/openssl enable-ec nistp_64_gcc_128
+make depend
+make
+sudo make install
+
+<span class="c1"># config</span>
+openssl <span class="nb">help</span>
+<span class="nb">cd</span> /usr/lib/../openssl.conf
+// look inside misc
+
+<span class="c1"># list of supported ciphers</span>
+openssl ciphers -v <span class="s1">&#39;ALL:COMPLEMENTOFALL&#39;</span>
+</code></pre></div>
+<h2 id="test-ssl-certificate-of-a-url">Test SSL Certificate of a URL</h2>
+<div class="highlight"><pre><span></span><code>openssl s_client -connect subject.com:443 -showcerts
+
+<span class="c1"># check cert expiry date of ssl url</span>
+openssl s_client -connect subject.com:443 <span class="m">2</span>&gt;/dev/null <span class="p">|</span> openssl x509 -noout -enddate
+
+<span class="c1"># check if ssl or tls is accepted on a url</span>
+openssl s_client -connect secureurl.com:443 -ssl2
+openssl s_client -connect secureurl.com:443 –ssl3
+openssl s_client -connect secureurl.com:443 –tls1
+openssl s_client -connect secureurl.com:443 –tls1_1
+openssl s_client -connect secureurl.com:443 –tls1_2
+
+<span class="c1"># verify if a particular cipher is accepted on url</span>
+openssl s_client -cipher <span class="s1">&#39;ECDHE-ECDSA-AES256-SHA&#39;</span> -connect secureurl:443
+
+<span class="c1"># verify if the cert and the key belong to each other.</span>
+<span class="c1"># checksum should match</span>
+openssl x509 -noout -modulus -in server.crt <span class="p">|</span> openssl md5
+openssl rsa -noout -modulus -in server.key <span class="p">|</span> openssl md5
+</code></pre></div>
+<h2 id="setup-root-ca">Setup Root CA</h2>
+<ul>
+<li><a href="https://jamielinux.com/docs/openssl-certificate-authority/introduction.html">JamieLinux Guide</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/java-keytool-essentials-working-with-java-keystores">DigitalOcean Guide</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code>mkdir root/ca
+<span class="nb">cd</span> root/ca
+
+mkdir csr certs crl newcerts private public
+chmod <span class="m">700</span> private
+
+touch index.txt
+<span class="nb">echo</span> <span class="m">1000</span> &gt; serial
+
+// Configure file <span class="s1">&#39;root/ca/openssl.cnf&#39;</span>
+<span class="o">[</span> ca <span class="o">]</span>
+<span class="c1"># `man ca`</span>
+<span class="nv">default_ca</span> <span class="o">=</span> CA_default
+
+<span class="o">[</span> CA_default <span class="o">]</span>
+<span class="c1"># Directory and file locations.</span>
+<span class="nv">dir</span>               <span class="o">=</span> /root/ca
+<span class="nv">certs</span>             <span class="o">=</span> <span class="nv">$dir</span>/certs
+<span class="nv">crl_dir</span>           <span class="o">=</span> <span class="nv">$dir</span>/crl
+<span class="nv">new_certs_dir</span>     <span class="o">=</span> <span class="nv">$dir</span>/newcerts
+<span class="nv">database</span>          <span class="o">=</span> <span class="nv">$dir</span>/index.txt
+<span class="nv">serial</span>            <span class="o">=</span> <span class="nv">$dir</span>/serial
+<span class="nv">RANDFILE</span>          <span class="o">=</span> <span class="nv">$dir</span>/private/.rand
+
+<span class="c1"># The root key and root certificate.</span>
+<span class="nv">private_key</span>       <span class="o">=</span> <span class="nv">$dir</span>/private/ca.key.pem
+<span class="nv">certificate</span>       <span class="o">=</span> <span class="nv">$dir</span>/certs/ca.cert.pem
+
+<span class="c1"># For certificate revocation lists.</span>
+<span class="nv">crlnumber</span>         <span class="o">=</span> <span class="nv">$dir</span>/crlnumber
+<span class="nv">crl</span>               <span class="o">=</span> <span class="nv">$dir</span>/crl/ca.crl.pem
+<span class="nv">crl_extensions</span>    <span class="o">=</span> crl_ext
+<span class="nv">default_crl_days</span>  <span class="o">=</span> <span class="m">30</span>
+
+<span class="c1"># SHA-1 is deprecated, so use SHA-2 instead.</span>
+<span class="nv">default_md</span>        <span class="o">=</span> sha256
+
+<span class="nv">name_opt</span>          <span class="o">=</span> ca_default
+<span class="nv">cert_opt</span>          <span class="o">=</span> ca_default
+<span class="nv">default_days</span>      <span class="o">=</span> <span class="m">375</span>
+<span class="nv">preserve</span>          <span class="o">=</span> no
+<span class="nv">policy</span>            <span class="o">=</span> policy_strict
+
+<span class="o">[</span> policy_strict <span class="o">]</span>
+<span class="c1"># The root CA should only sign intermediate certificates that match.</span>
+<span class="c1"># See the POLICY FORMAT section of `man ca`.</span>
+<span class="nv">countryName</span>             <span class="o">=</span> match
+<span class="nv">stateOrProvinceName</span>     <span class="o">=</span> match
+<span class="nv">organizationName</span>        <span class="o">=</span> match
+<span class="nv">organizationalUnitName</span>  <span class="o">=</span> optional
+<span class="nv">commonName</span>              <span class="o">=</span> supplied
+<span class="nv">emailAddress</span>            <span class="o">=</span> optional
+
+<span class="o">[</span> policy_loose <span class="o">]</span>
+<span class="c1"># Allow the intermediate CA to sign a more diverse range of certificates.</span>
+<span class="c1"># See the POLICY FORMAT section of the `ca` man page.</span>
+<span class="nv">countryName</span>             <span class="o">=</span> optional
+<span class="nv">stateOrProvinceName</span>     <span class="o">=</span> optional
+<span class="nv">localityName</span>            <span class="o">=</span> optional
+<span class="nv">organizationName</span>        <span class="o">=</span> optional
+<span class="nv">organizationalUnitName</span>  <span class="o">=</span> optional
+<span class="nv">commonName</span>              <span class="o">=</span> supplied
+<span class="nv">emailAddress</span>            <span class="o">=</span> optional
+
+<span class="o">[</span> req <span class="o">]</span>
+<span class="c1"># Options for the `req` tool (`man req`), are applied when creating certs or csr.</span>
+<span class="nv">default_bits</span>        <span class="o">=</span> <span class="m">2048</span>
+<span class="nv">distinguished_name</span>  <span class="o">=</span> req_distinguished_name
+<span class="nv">string_mask</span>         <span class="o">=</span> utf8only
+
+<span class="c1"># SHA-1 is deprecated, so use SHA-2 instead.</span>
+<span class="nv">default_md</span>          <span class="o">=</span> sha256
+
+<span class="c1"># Extension to add when the -x509 option is used.</span>
+<span class="nv">x509_extensions</span>     <span class="o">=</span> v3_ca
+
+<span class="o">[</span> req_distinguished_name <span class="o">]</span>
+<span class="c1"># See &lt;https://en.wikipedia.org/wiki/Certificate_signing_request&gt;.</span>
+<span class="nv">countryName</span>                     <span class="o">=</span> Country Name <span class="o">(</span><span class="m">2</span> letter code<span class="o">)</span>
+<span class="nv">stateOrProvinceName</span>             <span class="o">=</span> State or Province Name
+<span class="nv">localityName</span>                    <span class="o">=</span> Locality Name
+<span class="m">0</span>.organizationName              <span class="o">=</span> Organization Name
+<span class="nv">organizationalUnitName</span>          <span class="o">=</span> Organizational Unit Name
+<span class="nv">commonName</span>                      <span class="o">=</span> Common Name
+<span class="nv">emailAddress</span>                    <span class="o">=</span> Email Address
+
+<span class="c1"># Optionally, specify some defaults.</span>
+<span class="nv">countryName_default</span>             <span class="o">=</span> GB
+<span class="nv">stateOrProvinceName_default</span>     <span class="o">=</span> England
+<span class="nv">localityName_default</span>            <span class="o">=</span>
+<span class="m">0</span>.organizationName_default      <span class="o">=</span> Alice Ltd
+<span class="c1">#organizationalUnitName_default =</span>
+<span class="c1">#emailAddress_default           =</span>
+
+<span class="o">[</span> v3_intermediate_ca <span class="o">]</span>
+<span class="c1"># Extensions for a typical intermediate CA (`man x509v3_config`).</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid:always,issuer
+<span class="nv">basicConstraints</span> <span class="o">=</span> critical, CA:true, pathlen:0
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature, cRLSign, keyCertSign
+
+<span class="o">[</span> usr_cert <span class="o">]</span>
+<span class="c1"># Extensions for client certificates (`man x509v3_config`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">nsCertType</span> <span class="o">=</span> client, email
+<span class="nv">nsComment</span> <span class="o">=</span> <span class="s2">&quot;OpenSSL Generated Client Certificate&quot;</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, nonRepudiation, digitalSignature, keyEncipherment
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> clientAuth, emailProtection
+
+<span class="o">[</span> server_cert <span class="o">]</span>
+<span class="c1"># Extensions for server certificates (`man x509v3_config`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">nsCertType</span> <span class="o">=</span> server
+<span class="nv">nsComment</span> <span class="o">=</span> <span class="s2">&quot;OpenSSL Generated Server Certificate&quot;</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer:always
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature, keyEncipherment
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> serverAuth
+
+<span class="o">[</span> crl_ext <span class="o">]</span>
+<span class="c1"># Extension for CRLs (`man x509v3_config`).</span>
+<span class="nv">authorityKeyIdentifier</span><span class="o">=</span>keyid:always
+
+<span class="o">[</span> ocsp <span class="o">]</span>
+<span class="c1"># Extension for OCSP signing certificates (`man ocsp`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> critical, OCSPSigning
+// end of config file
+</code></pre></div>
+<h2 id="generate-root-ca-private-key">Generate Root CA Private Key</h2>
+<div class="highlight"><pre><span></span><code>openssl genrsa -aes256 -out private/ca.key.pem -passout pass:changeit <span class="m">4096</span>
+
+<span class="c1"># read-only for owner</span>
+chmod <span class="m">400</span> private/ca.key.pem
+
+<span class="c1"># To verify enter the pass phrase</span>
+openssl rsa -in private/ca.key.pem -check
+</code></pre></div>
+<h2 id="generate-root-ca-certificate">Generate Root CA Certificate</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Specify a conf file to use with the -config option</span>
+<span class="c1"># otherwise openssl defaults to /etc/pki/tls/openssl.cnf</span>
+
+<span class="c1"># generate csr and sign it</span>
+openssl req -config openssl.cnf -key private/ca.key.pem -new -x509 -days <span class="m">7300</span> -sha256 -extensions v3_ca -out certs/ca.cert.pem -passin pass:changeit
+
+<span class="c1"># read access to all</span>
+chmod <span class="m">444</span> certs/ca.cert.pem
+
+<span class="c1"># alternative inline option</span>
+-subj <span class="s1">&#39;/C=UA/O=myCompany/CN=myCompanyRootCA&#39;</span>
+
+<span class="c1"># verify the cert</span>
+openssl x509 -noout -text -in certs/ca.cert.pem
+
+<span class="c1"># verify the cert dates</span>
+openssl x509 -noout -dates -in certs/ca.cert.pem
+
+<span class="c1"># verify the cert signing authority</span>
+openssl x509 -noout -issuer -issuer_hash -in certs/ca.key.pem
+
+<span class="c1"># verify the cert&#39;s hash</span>
+openssl x509 -noout -text -in certs/ca.key.pem <span class="p">|</span> grep <span class="s1">&#39;Signature Algorithm&#39;</span>
+
+<span class="c1"># verify signature</span>
+openssl x509 -noout -in certs/ca.cert.pem -sha256 -fingerprint
+
+<span class="c1"># verify the checksum of private key and cert match, vouching the cert is signed by private key</span>
+openssl x509 -noout -modulus -in certs/ca.cert.pem <span class="p">|</span> openssl md5
+openssl rsa -noout -modulus -in private/ca.key.pem -passin pass:changeit <span class="p">|</span> openssl md5
+</code></pre></div>
+<h2 id="generate-root-csr-and-sign-it-to-generate-root-ca-certificate">Generate Root CSR and sign it to generate Root CA Certificate</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># generate csr</span>
+openssl req -config openssl.cnf <span class="se">\</span>
+  -key private/ca.key.pem -new -days <span class="m">7300</span> -sha256 <span class="se">\</span>
+  -out csr/ca.csr.pem -passin pass:changeit
+
+<span class="c1"># sign csr and generate certificate</span>
+openssl req -config openssl.cnf <span class="se">\</span>
+  -in csr/ca.csr.pem -key private/ca.key.pem -x509 -sha256 <span class="se">\</span>
+  -extensions v3_ca -out certs/ca.cert2.pem -passin pass:changeit
+
+<span class="c1"># every one has read access</span>
+chmod <span class="m">444</span> certs/ca.cert2.pem
+</code></pre></div>
+<h2 id="extract-root-ca-public-key">Extract Root CA Public Key</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># extract rootCA public key using private key</span>
+openssl rsa -in private/ca.key.pem -pubout -out public/ca.public.key.pem
+
+<span class="c1"># extract rootCA public key using certificate</span>
+openssl x509 -pubkey -noout -in certs/ca.cert.pem &gt; public/ca.public.key.pem
+</code></pre></div>
+<h2 id="generate-self-signed-certificate">Generate self-signed Certificate</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># generate self-signed certificate and key file with 4096 bit rsa</span>
+<span class="c1"># this will generate cert valid for one year</span>
+openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout selfsigned.key -out selfsignedcert.pem
+
+<span class="c1"># self-signed valid for 2 years</span>
+openssl req -x509 -sha256 -nodes -days <span class="m">730</span> -newkey rsa:4096 -keyout selfsigned.key -out selfsignedcert.pem
+
+<span class="c1"># how do you know if a certificate is self-signed?</span>
+<span class="c1"># The issuer and subject attributes will be identical</span>
+</code></pre></div>
+<h2 id="intermediate-ca">Intermediate CA</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># intermediate</span>
+mkdir ca/intermediate
+<span class="nb">cd</span> intermediate
+mkdir certs crtl csr newcerts private public
+chmod <span class="m">700</span> private
+touch index.txt
+<span class="nb">echo</span> <span class="m">1000</span> &gt; serial
+<span class="nb">echo</span> <span class="m">1000</span> &gt; crlnumber
+
+// Copy to <span class="sb">`</span>ca/intermediate/openssl.cnf<span class="sb">`</span>**.
+
+<span class="o">[</span> ca <span class="o">]</span>
+<span class="c1"># `man ca`</span>
+<span class="nv">default_ca</span> <span class="o">=</span> CA_default
+
+<span class="o">[</span> CA_default <span class="o">]</span>
+<span class="c1"># Directory and file locations.</span>
+<span class="nv">dir</span>               <span class="o">=</span> /Users/manish/Documents/openssl/ca/intermediate
+<span class="nv">certs</span>             <span class="o">=</span> <span class="nv">$dir</span>/certs
+<span class="nv">crl_dir</span>           <span class="o">=</span> <span class="nv">$dir</span>/crl
+<span class="nv">new_certs_dir</span>     <span class="o">=</span> <span class="nv">$dir</span>/newcerts
+<span class="nv">database</span>          <span class="o">=</span> <span class="nv">$dir</span>/index.txt
+<span class="nv">serial</span>            <span class="o">=</span> <span class="nv">$dir</span>/serial
+<span class="nv">RANDFILE</span>          <span class="o">=</span> <span class="nv">$dir</span>/private/.rand
+
+<span class="c1"># The root key and root certificate.</span>
+<span class="nv">private_key</span>       <span class="o">=</span> <span class="nv">$dir</span>/private/intermediate.key.pem
+<span class="nv">certificate</span>       <span class="o">=</span> <span class="nv">$dir</span>/certs/intermediate.cert.pem
+
+<span class="c1"># For certificate revocation lists.</span>
+<span class="nv">crlnumber</span>         <span class="o">=</span> <span class="nv">$dir</span>/crlnumber
+<span class="nv">crl</span>               <span class="o">=</span> <span class="nv">$dir</span>/crl/intermediate.crl.pem
+<span class="nv">crl_extensions</span>    <span class="o">=</span> crl_ext
+<span class="nv">default_crl_days</span>  <span class="o">=</span> <span class="m">30</span>
+
+<span class="c1"># SHA-2.</span>
+<span class="nv">default_md</span>        <span class="o">=</span> sha256
+
+<span class="nv">name_opt</span>          <span class="o">=</span> ca_default
+<span class="nv">cert_opt</span>          <span class="o">=</span> ca_default
+<span class="nv">default_days</span>      <span class="o">=</span> <span class="m">375</span>
+<span class="nv">preserve</span>          <span class="o">=</span> no
+<span class="nv">policy</span>            <span class="o">=</span> policy_loose
+
+<span class="o">[</span> policy_strict <span class="o">]</span>
+<span class="c1"># The root CA should only sign intermediate certificates that match.</span>
+<span class="c1"># See the POLICY FORMAT section of `man ca`.</span>
+<span class="nv">countryName</span>             <span class="o">=</span> match
+<span class="nv">stateOrProvinceName</span>     <span class="o">=</span> match
+<span class="nv">organizationName</span>        <span class="o">=</span> match
+<span class="nv">organizationalUnitName</span>  <span class="o">=</span> optional
+<span class="nv">commonName</span>              <span class="o">=</span> supplied
+<span class="nv">emailAddress</span>            <span class="o">=</span> optional
+
+<span class="o">[</span> policy_loose <span class="o">]</span>
+<span class="c1"># Allow the intermediate CA to sign a more diverse range of certificates.</span>
+<span class="c1"># See the POLICY FORMAT section of the `ca` man page.</span>
+<span class="nv">countryName</span>             <span class="o">=</span> optional
+<span class="nv">stateOrProvinceName</span>     <span class="o">=</span> optional
+<span class="nv">localityName</span>            <span class="o">=</span> optional
+<span class="nv">organizationName</span>        <span class="o">=</span> optional
+<span class="nv">organizationalUnitName</span>  <span class="o">=</span> optional
+<span class="nv">commonName</span>              <span class="o">=</span> supplied
+<span class="nv">emailAddress</span>            <span class="o">=</span> optional
+
+<span class="o">[</span> req <span class="o">]</span>
+<span class="c1"># Options for the `req` tool (`man req`).</span>
+<span class="nv">default_bits</span>        <span class="o">=</span> <span class="m">2048</span>
+<span class="nv">distinguished_name</span>  <span class="o">=</span> req_distinguished_name
+<span class="nv">string_mask</span>         <span class="o">=</span> utf8only
+
+<span class="c1"># SHA-1 is deprecated, so use SHA-2 instead.</span>
+<span class="nv">default_md</span>          <span class="o">=</span> sha256
+
+<span class="c1"># Extension to add when the -x509 option is used.</span>
+<span class="nv">x509_extensions</span>     <span class="o">=</span> v3_ca
+
+<span class="o">[</span> req_distinguished_name <span class="o">]</span>
+<span class="c1"># See &lt;https://en.wikipedia.org/wiki/Certificate_signing_request&gt;.</span>
+<span class="nv">countryName</span>                     <span class="o">=</span> US
+<span class="nv">stateOrProvinceName</span>             <span class="o">=</span> Arizona
+<span class="nv">localityName</span>                    <span class="o">=</span> Chandler
+<span class="m">0</span>.organizationName              <span class="o">=</span> Deliwala Ltd
+<span class="nv">organizationalUnitName</span>          <span class="o">=</span> Organizational Unit Name
+<span class="nv">commonName</span>                      <span class="o">=</span> Common Name
+<span class="nv">emailAddress</span>                    <span class="o">=</span> Email Address
+
+<span class="c1"># Optionally, specify some defaults.</span>
+<span class="nv">countryName_default</span>             <span class="o">=</span> US
+<span class="nv">stateOrProvinceName_default</span>     <span class="o">=</span> Arizona
+<span class="nv">localityName_default</span>            <span class="o">=</span> Chandler
+<span class="m">0</span>.organizationName_default      <span class="o">=</span> Deliwala Ltd
+<span class="nv">organizationalUnitName_default</span>  <span class="o">=</span>
+<span class="nv">emailAddress_default</span>            <span class="o">=</span>
+
+<span class="o">[</span> v3_ca <span class="o">]</span>
+<span class="c1"># Extensions for a typical CA (`man x509v3_config`).</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid:always,issuer
+<span class="nv">basicConstraints</span> <span class="o">=</span> critical, CA:true
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature, cRLSign, keyCertSign
+
+<span class="o">[</span> v3_intermediate_ca <span class="o">]</span>
+<span class="c1"># Extensions for a typical intermediate CA (`man x509v3_config`).</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid:always,issuer
+<span class="nv">basicConstraints</span> <span class="o">=</span> critical, CA:true, pathlen:0
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature, cRLSign, keyCertSign
+
+<span class="o">[</span> usr_cert <span class="o">]</span>
+<span class="c1"># Extensions for client certificates (`man x509v3_config`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">nsCertType</span> <span class="o">=</span> client, email
+<span class="nv">nsComment</span> <span class="o">=</span> <span class="s2">&quot;OpenSSL Generated Client Certificate&quot;</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, nonRepudiation, digitalSignature, keyEncipherment
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> clientAuth, emailProtection
+
+<span class="o">[</span> server_cert <span class="o">]</span>
+<span class="c1"># Extensions for server certificates (`man x509v3_config`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">nsCertType</span> <span class="o">=</span> server
+<span class="nv">nsComment</span> <span class="o">=</span> <span class="s2">&quot;OpenSSL Generated Server Certificate&quot;</span>
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer:always
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature, keyEncipherment
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> serverAuth
+
+<span class="o">[</span> crl_ext <span class="o">]</span>
+<span class="c1"># Extension for CRLs (`man x509v3_config`).</span>
+<span class="nv">authorityKeyIdentifier</span><span class="o">=</span>keyid:always
+
+<span class="o">[</span> ocsp <span class="o">]</span>
+<span class="c1"># Extension for OCSP signing certificates (`man ocsp`).</span>
+<span class="nv">basicConstraints</span> <span class="o">=</span> CA:FALSE
+<span class="nv">subjectKeyIdentifier</span> <span class="o">=</span> <span class="nb">hash</span>
+<span class="nv">authorityKeyIdentifier</span> <span class="o">=</span> keyid,issuer
+<span class="nv">keyUsage</span> <span class="o">=</span> critical, digitalSignature
+<span class="nv">extendedKeyUsage</span> <span class="o">=</span> critical, OCSPSigning
+</code></pre></div>
+<h2 id="generate-intermediate-ca">Generate Intermediate CA</h2>
+<p>An intermediate ca signs certs on behalf of the root ca. The root ca signs the intermediate cert, forming a chain of trust.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># create the intermediate key</span>
+openssl genrsa -aes256 <span class="se">\</span>
+  -out intermediate/private/intermediate.key.pem <span class="m">4096</span>
+chmod <span class="m">400</span> intermediate/private/intermediate.key.pem
+
+<span class="c1"># create the intermediate certificate</span>
+openssl req -config intermediate/openssl.cnf <span class="se">\</span>
+  -new -sha256 <span class="se">\</span>
+  -key intermediate/private/intermediate.key.pem <span class="se">\</span>
+  -out intermediate/csr/intermediate.csr.pem
+
+<span class="c1"># sign the intermediate certificate, use the root ca conf</span>
+<span class="c1"># with appropriate extensions</span>
+<span class="c1"># make sure you say &#39;y&#39; to sign the certificate.</span>
+openssl ca -config openssl.cnf <span class="se">\</span>
+  -extensions v3_intermediate_ca -days <span class="m">3650</span> -notext -md sha256 <span class="se">\</span>
+    -in intermediate/csr/intermediate.csr.pem <span class="se">\</span>
+    -out intermediate/certs/intermediate.cert.pem
+
+chmod <span class="m">444</span> intermediate/certs/intermediate.cert.pem
+
+<span class="c1"># verify the intermediate certificate</span>
+openssl x509 -noout -text -in intermediate/certs/intermediate.cert.pem
+
+<span class="c1"># verify the intermediate against the root</span>
+openssl verify -CAfile certs/ca.cert.pem intermediate/certs/intermediate.cert.pem
+
+<span class="c1"># create the certificate chain file</span>
+cat intermediate/certs/intermediate.cert.pem certs/ca.cert.pem &gt; intermediate/certs/ca-chain.cert.pem
+chmod <span class="m">444</span> intermediate/certs/ca-chain.cert.pem
+</code></pre></div>
+<h2 id="other-commands">Other Commands</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># view a certificate</span>
+openssl x509 -in some.crt -noout -text
+
+<span class="c1"># check hash value of a cert</span>
+openssl x509 –inform der –in sslcert.der –out sslcert.pem
+
+<span class="c1"># remove passphrase from key</span>
+openssl rsa -in certkey.key -out nopassphrase.key
+
+<span class="c1"># generate csr and 2048-bit private rsa key</span>
+openssl req -out some.csr -newkey rsa:2048 -nodes -keyout private.key
+
+<span class="c1"># create intermediate CA private key</span>
+openssl genrsa -out intermediateCA.key -aes256 -passout pass:changeit <span class="m">4096</span>
+
+<span class="c1"># create intermediate CA certificate request</span>
+openssl req -new -key intermediateCA.key -out intermediateCA.csr -subj <span class="s1">&#39;/C=UA/O=MyCompany/CN=MyCompanyIntermediateCA&#39;</span> -passin pass:changeit
+
+<span class="c1"># create v3 x509 extensions</span>
+cat <span class="s">&lt;&lt;EOF &gt;v3_ca.ext</span>
+<span class="s">subjectKeyIdentifier=hash</span>
+<span class="s">authorityKeyIdentifier=keyid:always,issuer:always</span>
+<span class="s">basicConstraints=CA:true //this means that certificate can sign other certificates</span>
+<span class="s">EOF</span>
+
+<span class="c1"># review text version of csr</span>
+openssl x509 -intermediateCA.csr -noout -text
+
+<span class="c1"># sign intermediate CA csr with root CA private key and add x509 v3 extensions</span>
+openssl x509 -req -in intermediateCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -CAserial rootCA.srl -extfile v3_ca.ext -out intermediateCA.crt -days <span class="m">365</span> -sha256 -passin pass:changeit
+
+<span class="c1"># verify intermediate CA certificate</span>
+openssl verify -CAfile rootCA.crt intermediateCA.crt
+
+<span class="c1"># if required, generate csr from a certificate</span>
+openssl x509 -x509toreq -in intermediateCA.crt -out intermediateCA-2.csr -signkey rootCA.key -passin pass:changeit
+
+<span class="c1"># verify if a certificate was issued by a specific CA.</span>
+openssl verify -verbose -CAfile cacert.pem  server.crt
+server.crt: OK
+
+<span class="c1"># generate server private key</span>
+openssl genrsa -out server.key -aes256 -passout pass:changeit <span class="m">4096</span>
+
+<span class="c1"># generate csr</span>
+openssl req -new -key server.key -out server.csr -subj <span class="s1">&#39;/C=UA/O=MyCompany/CN=example.com&#39;</span> -passin pass:changeit
+
+<span class="c1"># sign csr using intermediate CA private key</span>
+openssl x509 -req -in server.csr -CA intermediateCA.crt -CAkey intermediateCA.key -CAcreateserial -CAserial intermediateCA.srl -out server.crt -days <span class="m">365</span> -sha256 -passin pass:changeit
+
+<span class="c1"># decrypt server private key to allow webserver</span>
+<span class="c1"># to use it without prompting for password</span>
+mv server.key server.key.secure
+openssl rsa -in server.key.secure -out server.key -passin pass:changeit
+</code></pre></div>
+<h2 id="sign-server-certificate-using-intermediate-ca">Sign Server Certificate using Intermediate CA</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a private key</span>
+openssl genrsa -aes256 -out intermediate/private/www.myhost.com.key.pem <span class="m">2048</span>
+chmod <span class="m">400</span> intermediate/private/www.myhost.com.key.pem
+
+<span class="c1"># create a CSR</span>
+openssl req -config intermediate/openssl.cnf -key intermediate/private/www.myhost.com.key.pem -new -sha256 -out intermediate/csr/www.myhost.com.csr.pem
+
+<span class="c1"># sign the CSR</span>
+openssl ca -config intermediate/openssl.cnf -extensions server_cert -day <span class="m">375</span> -notext -md sha256 -in intermediate/csr/www.myhost.com.csr.pem -out intermediate/certs/www.myhost.com.cert.pem
+chmod <span class="m">444</span> intermediate/certs/www.myhost.com.cert.pem
+
+<span class="c1"># verify</span>
+openssl x509 -noout -text -in intermediate/certs/www.myhost.com.cert.pem
+
+<span class="c1"># verify against CA cert chain</span>
+openssl verify -CAfile intermediate/certs/ca-chain.cert.pem intermediate/certs/www.myhost.com.cert.pem
+
+<span class="c1"># text version of certificate</span>
+openssl x509 -in rootCA.crt -text
+
+<span class="c1"># view pem certificates</span>
+openssl x509 -in cert.pem -text -noout
+openssl x509 -in cert.cer -text -noout
+openssl x509 -in cert.crt -text -noout
+<span class="c1"># you may see error if you are using</span>
+<span class="c1"># pem command to view the certificate</span>
+unable to load certificate
+<span class="m">12626</span>:error:0906D06C:PEM routines:PEM_read_bio:no start line:pem_lib.c:647:Expecting: TRUSTED CERTIFICATE
+
+<span class="c1"># view der certificates</span>
+openssl x509 -in certificate.der -inform der -text -noout
+
+<span class="c1"># convert der (.crt, .cer, .der) to pem</span>
+openssl x509 -inform der -in cert.cer -out cert.pem
+
+<span class="c1"># pem to der</span>
+openssl x509 -in cert.crt -outform der -out cert.der
+openssl x509 -in cert.pem -outform der -out cert.der
+
+<span class="c1"># pem to p7b</span>
+openssl crl2pkcs7 -nocrl -certfile certificate.cer -out certificate.p7b -certfile CAcert.cer
+
+<span class="c1"># pem to pfx</span>
+openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CAcert.crt
+
+<span class="c1"># pem to crt</span>
+openssl x509 -outform der -in cert.pem -out cert.crt
+
+<span class="c1"># der to pem</span>
+openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
+
+<span class="c1"># p7b to pem</span>
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+
+<span class="c1"># p7b to pfx</span>
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+openssl pkcs12 -export -in certificate.cer -inkey privateKey.key-out certificate.pfx -certfile CAcert.cer
+
+<span class="c1"># pfx to pem</span>
+openssl pkcs12 -in certificate.pfx -out certificate.cer -nodes
+<span class="c1"># command will put all certs and private key into a single file</span>
+<span class="c1"># you will need to copy each certificate and private key including the</span>
+<span class="c1"># begin/end statements to its individual text files and save them as .cer</span>
+
+<span class="c1"># convert cert and private key to pkcs#12 format</span>
+openssl pkcs12 –export –out sslcert.pfx –inkey key.pem –in sslcert.pem
+
+<span class="c1"># convert pkcs12 to pem</span>
+openssl pkcs12 –in cert.p12 –out cert.pem
+openssl pkcs12 -in keystore.pfx -out keystore.pem -nodes
+
+<span class="c1"># convert pkcs12 to pem - private key only</span>
+add -nocerts as option to above
+
+<span class="c1"># convert pkcs12 to pem - cert only</span>
+add -nokeys as option to above
+
+<span class="c1"># check contents of pkcs12 format cert</span>
+openssl pkcs12 –info –nodes –in cert.p12
+
+<span class="c1"># der to text</span>
+openssl x509 -in cert.der -inform der -text -noout
+
+<span class="c1"># pem to text</span>
+openssl x509 -in cert.pem -inform dem -text -noout
+
+<span class="c1"># pem to pkcs12 (.pfx, .p12)</span>
+<span class="c1"># convert pem cert and private key to pkcs12 format</span>
+openssl pkcs12 -export -out cert.pfx -inkey privatekey.key -in cert.crt -certfile CACert.crt
+
+<span class="c1"># combination - combine multiple x509 assets into a single file</span>
+</code></pre></div>
+<h2 id="client-certificate">Client Certificate</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># generate client private key</span>
+openssl genrsa -out client.key -aes256 -passout pass:changeit <span class="m">4096</span>
+
+<span class="c1"># generate client certificate request</span>
+openssl req -new -key client.key -out client.csr -subj <span class="s1">&#39;/C=UA/O=My Company/CN=My Name/emailAddress=my_name@example.com&#39;</span> -passin pass:changeit
+
+<span class="c1"># sign client certificate request with intermediate CA private key</span>
+openssl x509 -req -in client.csr -CA intermediateCA.crt -CAkey intermediateCA.key -CAcreateserial -CAserial intermediateCA.srl -out client.crt -days <span class="m">365</span> -sha256 -passin pass:changeit
+
+<span class="c1"># create CA certificate chain file</span>
+cat intermediateCA.crt rootCA.crt &gt; CAchain.pem
+<span class="nb">export</span> client certificate to PKCS#12 file to be able to import it into the browser
+openssl pkcs12 -export -passout pass:changeit -in client.crt -inkey client.key -certfile CAchain.pem -out client.p12 -passin pass:changeit
+
+<span class="c1"># verify server and client certs against</span>
+<span class="c1"># the cert chain and print their contents</span>
+openssl verify -CAfile CAchain.pem server.crt
+openssl x509 -in server.crt -text
+openssl verify -CAfile CAchain.pen client.crt
+openssl x509 -in client.crt -test
+</code></pre></div>
+<h2 id="digest">Digest</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># sha1 for a file</span>
+openssl dgst -sha1 file.txt
+openssl dgst -out digest.txt file.txt
+
+<span class="c1"># sha256 for a file</span>
+openssl dgst -sha256 file.txt
+openssl dgst -sha256 file.txt -out digest.txt
+
+<span class="c1"># dgst options</span>
+<span class="c1"># run with unknown command to get more details</span>
+openssl dgst -help
+
+<span class="c1"># -c for colons</span>
+<span class="c1"># -hex for hexdump</span>
+<span class="c1"># -binary</span>
+<span class="c1"># -sign: sign the digest with a private key</span>
+<span class="c1"># -verify: verify a signature using private key</span>
+
+<span class="c1"># sign the digest of file.txt using DSA or RSA private key</span>
+openssl dgst -dss1 -sign dsakey.pem -out dsasign.bin file.txt
+openssl -sha1 -sign rsaprivate.pem out rsasign.bin file.txt
+
+<span class="c1"># verify signature</span>
+openssl dgst -dss1 -prverify dsakey.pem -signature dsasign.bin file.txt
+openssl -sha1 -verify rsapublic.pem -signature rsasign.bin file.txt
+</code></pre></div>
+<h1 id="encrypt-in-des3cbc-mode">Encrypt in DES3/CBC mode</h1>
+<div class="highlight"><pre><span></span><code><span class="c1"># encrypt in des3/cbc mode</span>
+openssl enc -des3 -salt -in plaintext.doc -out ciphertext.bin
+openssl enc -des3-ede-ofb -d -in ciphertext.bin -out plaintext.doc -passin pass:changeit
+</code></pre></div>
+<h2 id="dsa-key-generation">DSA Key Generation</h2>
+<div class="highlight"><pre><span></span><code>openssl ecparam -genkey -name secp256r1 <span class="p">|</span> openssl ec -out ec.key -aes128
+</code></pre></div>
+<h2 id="self-signed-certificates-generating-keystore-and-truststore">Self-signed Certificates, Generating Keystore and Truststore</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># use openssl to generate  private key and certificate</span>
+<span class="c1"># import into keystore and truststore</span>
+
+<span class="c1"># generate server private key and verify it</span>
+openssl genrsa -aes256 -out private/server.key.pem -passout pass:s123 <span class="m">4096</span>
+chmod <span class="m">400</span> private/server.key.pem
+openssl rsa -in private/server.key.pem –check
+
+<span class="c1"># generate csr and sign it</span>
+openssl req -key server.key.pem -new -x509 -days <span class="m">30</span> -sha256 -out server.cert.pem -passin pass:s123
+
+<span class="c1"># verify the certificate</span>
+openssl x509 -noout -text -in server.cert.pem
+
+<span class="c1"># verify the dates in the certificate</span>
+openssl x509 -noout -dates -in server.cert.pem
+
+<span class="c1"># verify the cert signing authority</span>
+openssl x509 -noout -issuer -issuer_hast -in server.cert.pem
+
+<span class="c1"># verify the cert&#39;s hash</span>
+openssl x509 -noout -text -in server.cert.pem <span class="p">|</span> grep <span class="s1">&#39;Signature Algorithm&#39;</span>
+
+<span class="c1"># convert server cert from pem to pkcs12</span>
+openssl pkcs12 -export -name server-cert -in server.cert.pem -inkey server.key.pem -out server.keystore.p12
+
+<span class="c1"># convert pkcs12 keystore into a jks keystore</span>
+keytool -importkeystore -destkeystore server.keystore.jks -srckeystore server.keystore.p12 -srcstoretype pkcs12 -alias server-cert
+
+<span class="c1"># import server&#39;s certificate into server truststore</span>
+keytool -import -alias server-cert -file server.cert.pem -keystore server.truststore.jks
+
+<span class="c1"># import client&#39;s certificate into server&#39;s truststore</span>
+keytool -import -alias client-cert -file client.cert.pem -keystore server.truststore.jks
+
+<span class="c1"># check which certificates are in the keystore</span>
+keytool -list -v -keystore server.keystore.jks -storepass sss123 //this shows fingerprint
+
+<span class="c1"># check which certificates are in the truststore</span>
+keytool -list -v -keystore server.truststore.jks -storepass sss123
+
+<span class="c1"># generate client side</span>
+openssl genrsa -aes256 -out private/client.key.pem -passout pass:c123 <span class="m">4096</span>
+openssl req -key client.key.pem -new -x509 -days <span class="m">30</span> -sha256 -out client.cert.pem -passin pass:c123
+openssl pkcs12 -export -name client-.cert -in client.cert.pem -inkey client.key.pem -out client.keystore.p12
+openssl pkcs12 -export -name server-cert -in client.cert.pem -inkey client.key.pem -out client.keystore.p12
+keytool -importkeystore -destkeystore client.keystore.jks -srckeystore client.keystore.p12 -srcstoretype pkcs12 -alias client-cert
+keytool -import -alias client-cert -file client.cert.pem -keystore client.truststore.jks
+
+<span class="c1"># import server cert into client truststore</span>
+keytool -import -alias server-cert -file server.cert.pem -keystore client.truststore.jks
+keytool -list -v -keystore client.keystore.jks -storepass ccc123
+keytool -list -v -keystore client.truststore.jks -storepass ccc123
+</code></pre></div>
+<h3 id="keytool">keytool</h3>
+<p><a href="http://javarevisited.blogspot.com/2012/09/difference-between-truststore-vs-keyStore-Java-SSL.html">Guide</a></p>
+<blockquote>
+<p>keystore stores private keys and certs corresponding to public keys and truststore store third-party certificates</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>rm <span class="se">\*</span>.jks <span class="m">2</span><span class="se">\&gt;</span> /dev/null
+rm <span class="se">\*</span>.pem <span class="m">2</span><span class="se">\&gt;</span> /dev/null
+
+
+<span class="c1"># Generate private key for RootCA</span>
+keytool -genkeypair -alias rootCA -dname <span class="nv">cn</span><span class="o">=</span>MyCompanyRootCA -validity <span class="m">10000</span> -keyalg RSA -keysize <span class="m">4096</span> -ext bc:c -keystore rootCA.jks -keypass changeit -storepass changeit
+
+<span class="c1"># Generate private key for IntermediateCA</span>
+keytool -genkeypair -alias intermediateCA -dname <span class="nv">cn</span><span class="o">=</span>MyCompanyIntermediateCA -validity <span class="m">10000</span> -keyalg RSA -keysize <span class="m">4096</span> -ext bc:c -keystore intermediateCA.jks -keypass changeit -storepass changeit
+
+<span class="c1"># Generate root certificate</span>
+keytool -exportcert -rfc -keystore rootCA.jks -alias rootCA -storepass changeit <span class="se">\&gt;</span> rootCA.pem
+
+<span class="c1"># Generate a certificate for intermediateCA and signed by rootCA, use pipeline between two commands</span>
+keytool -keystore intermediateCA.jks -storepass changeit -certreq -alias intermediateCA <span class="p">|</span> keytool -keystore rootCA.jks -storepass changeit -gencert -alias rootCA -ext <span class="nv">bc</span><span class="o">=</span><span class="m">0</span> -ext <span class="nv">san</span><span class="o">=</span>dns:intermediateCA -rfc <span class="se">\&gt;</span> intermediateCA.pem
+
+<span class="c1"># Import intermediateCA cert chain into intermediateCA.jks</span>
+keytool -keystore intermediateCA.jks -storepass changeit -importcert -trustcacerts -noprompt -alias rootCA -file rootCA.pem
+
+keytool -keystore intermediateCA.jks -storepass changeit -importcert -alias intermediateCA -file intermediateCA.pem
+
+<span class="c1"># Generate private keys for server</span>
+keytool -genkeypair -alias server -dname <span class="nv">cn</span><span class="o">=</span>server -validity <span class="m">10000</span> -keyalg RSA -keysize <span class="m">4096</span> -keystore my-keystore.jks -keypass changeit -storepass changeit
+
+<span class="c1"># Generate a certificate for server signed by intermediateCA</span>
+keytool -keystore my-keystore.jks -storepass changeit -certreq -alias server <span class="p">|</span> keytool -keystore intermediateCA.jks -storepass changeit -gencert -alias intermediateCA -ext ku:c<span class="o">=</span>dig,keyEnc -ext <span class="nv">san</span><span class="o">=</span>dns:localhost -ext <span class="nv">eku</span><span class="o">=</span>sa,ca -rfc <span class="se">\&gt;</span> server.pem
+
+<span class="c1"># Import server cert chain into my-keystore.jks</span>
+keytool -keystore my-keystore.jks -storepass changeit -importcert -trustcacerts -noprompt -alias rootCA -file rootCA.pem
+
+keytool -keystore my-keystore.jks -storepass changeit -importcert -alias intermediateCA -file intermediateCA.pem
+
+keytool -keystore my-keystore.jks -storepass changeit -importcert -alias server -file server.pem
+
+<span class="c1"># Generate truststore.jks</span>
+keytool -keystore my-truststore.jks -storepass changeit -importcert -trustcacerts -noprompt -alias rootCA -file rootCA.pem
+
+keytool -keystore my-truststore.jks -storepass changeit -importcert -alias intermediateCA -file intermediateCA.pem
+
+keytool -keystore my-truststore.jks -storepass changeit -importcert -alias server -file server.pem
+</code></pre></div>
+<h3 id="ssh-gen">ssh-gen</h3>
+<p><a href="https://www.ssh.com/ssh/keygen">Guide</a></p>
+<p><a href="https://www.freecodecamp.org/news/the-ultimate-guide-to-ssh-setting-up-ssh-keys/">Guide</a></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Creating an SSH Key Pair for User Authentication</span>
+ssh-keygen
+
+<span class="c1"># With different ciphers</span>
+ssh-keygen -t rsa -b <span class="m">4096</span>
+ssh-keygen -t dsa
+ssh-keygen -t ecdsa -b <span class="m">521</span>
+ssh-keygen -t ed25519
+
+ssh-keygen -f ~/tatu-key-ecdsa -t ecdsa -b <span class="m">521</span>
+
+<span class="c1"># Copy public key to server</span>
+ssh-copy-id -i ~/.ssh/tatu-key-ecdsa user@host
+
+<span class="c1"># Copy public key to clipboard</span>
+pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ssh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SSH" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SSH
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../jainism/aarti/" class="md-footer__link md-footer__link--next" aria-label="Next: Aarti" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Aarti
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Chopdas Doc Site
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.sections", "navigation.tracking", "navigation.instant", "search.highlight", "search.suggest", "search.share", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

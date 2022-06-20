@@ -1,0 +1,2684 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Maven - Chopdas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#maven" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../.."> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chopdas" class="md-header__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chopdas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Maven
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gradle/" class="md-tabs__link md-tabs__link--active">
+        Developer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../jainism/aarti/" class="md-tabs__link">
+        Jainism
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        Tags
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chopdas" class="md-nav__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chopdas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" data-md-state="indeterminate" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradle/" class="md-nav__link">
+        Gradle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Maven
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Maven
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generating-project" class="md-nav__link">
+    Generating project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-option" class="md-nav__link">
+    Compiler option
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skipping-test" class="md-nav__link">
+    Skipping test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-fat-jar-as-executable" class="md-nav__link">
+    Generating fat-jar as executable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-program-in-mvn" class="md-nav__link">
+    Executing program in mvn
+  </a>
+  
+    <nav class="md-nav" aria-label="Executing program in mvn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execjava" class="md-nav__link">
+    exec:java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execjavaapp1" class="md-nav__link">
+    exec:java@App1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execexec" class="md-nav__link">
+    exec:exec
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execexecapp" class="md-nav__link">
+    exec:exec@App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-profile" class="md-nav__link">
+    Using profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-embedded" class="md-nav__link">
+    Using Vertx embedded
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-verticle" class="md-nav__link">
+    Using Vertx verticle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-maven-service-factory" class="md-nav__link">
+    Using Vertx maven service factory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-resource-plugin" class="md-nav__link">
+    maven-resource-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-checkstyle-plugin" class="md-nav__link">
+    maven-checkstyle-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-compiler-plugin" class="md-nav__link">
+    maven-compiler-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-dependency-plugin" class="md-nav__link">
+    maven-dependency-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-jar-plugin" class="md-nav__link">
+    maven-jar-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-assembly-plugin" class="md-nav__link">
+    maven-assembly-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-shade-plugin" class="md-nav__link">
+    maven-shade-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-install-plugin-local-repo" class="md-nav__link">
+    maven-install-plugin (local repo)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-deploy-plugin-nexus-repo" class="md-nav__link">
+    maven-deploy-plugin (nexus repo)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexus-staging-maven-plugin" class="md-nav__link">
+    nexus-staging-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-release-plugin" class="md-nav__link">
+    maven-release-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-using-jenkins" class="md-nav__link">
+    Release using Jenkins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-surefile-plugin" class="md-nav__link">
+    maven-surefile-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-failsafe-plugin" class="md-nav__link">
+    maven-failsafe-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-clean-plugin" class="md-nav__link">
+    maven-clean-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-verifier-plugin" class="md-nav__link">
+    maven-verifier-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-site-plugin" class="md-nav__link">
+    maven-site-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-pmd-plugin" class="md-nav__link">
+    maven-pmd-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findbugs-maven-plugin" class="md-nav__link">
+    findbugs-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cobertura-maven-plugin" class="md-nav__link">
+    cobertura-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jacoco-maven-plugin" class="md-nav__link">
+    jacoco-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-project-info-reports-plugin" class="md-nav__link">
+    maven-project-info-reports-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versions-maven-plugin" class="md-nav__link">
+    versions-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hibernate-ehcache" class="md-nav__link">
+    hibernate-ehcache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pending" class="md-nav__link">
+    Pending
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resteasy-spring" class="md-nav__link">
+    resteasy-spring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssl/" class="md-nav__link">
+        OpenSSL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jainism
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jainism" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jainism
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/aarti/" class="md-nav__link">
+        Aarti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/logassa-stotra/" class="md-nav__link">
+        Logassa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/uvasa-stotra/" class="md-nav__link">
+        Uvasa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/samitis-guptis/" class="md-nav__link">
+        Samitis and Guptis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/panch-maha-vratas/" class="md-nav__link">
+        Panch Maha Vratas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tags
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tags" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tags
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        Tags index
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generating-project" class="md-nav__link">
+    Generating project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-option" class="md-nav__link">
+    Compiler option
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skipping-test" class="md-nav__link">
+    Skipping test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-fat-jar-as-executable" class="md-nav__link">
+    Generating fat-jar as executable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-program-in-mvn" class="md-nav__link">
+    Executing program in mvn
+  </a>
+  
+    <nav class="md-nav" aria-label="Executing program in mvn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#execjava" class="md-nav__link">
+    exec:java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execjavaapp1" class="md-nav__link">
+    exec:java@App1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execexec" class="md-nav__link">
+    exec:exec
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execexecapp" class="md-nav__link">
+    exec:exec@App
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-profile" class="md-nav__link">
+    Using profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-embedded" class="md-nav__link">
+    Using Vertx embedded
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-verticle" class="md-nav__link">
+    Using Vertx verticle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-vertx-maven-service-factory" class="md-nav__link">
+    Using Vertx maven service factory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-resource-plugin" class="md-nav__link">
+    maven-resource-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-checkstyle-plugin" class="md-nav__link">
+    maven-checkstyle-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-compiler-plugin" class="md-nav__link">
+    maven-compiler-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-dependency-plugin" class="md-nav__link">
+    maven-dependency-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-jar-plugin" class="md-nav__link">
+    maven-jar-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-assembly-plugin" class="md-nav__link">
+    maven-assembly-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-shade-plugin" class="md-nav__link">
+    maven-shade-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-install-plugin-local-repo" class="md-nav__link">
+    maven-install-plugin (local repo)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-deploy-plugin-nexus-repo" class="md-nav__link">
+    maven-deploy-plugin (nexus repo)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexus-staging-maven-plugin" class="md-nav__link">
+    nexus-staging-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-release-plugin" class="md-nav__link">
+    maven-release-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-using-jenkins" class="md-nav__link">
+    Release using Jenkins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-surefile-plugin" class="md-nav__link">
+    maven-surefile-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-failsafe-plugin" class="md-nav__link">
+    maven-failsafe-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-clean-plugin" class="md-nav__link">
+    maven-clean-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-verifier-plugin" class="md-nav__link">
+    maven-verifier-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-site-plugin" class="md-nav__link">
+    maven-site-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-pmd-plugin" class="md-nav__link">
+    maven-pmd-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findbugs-maven-plugin" class="md-nav__link">
+    findbugs-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cobertura-maven-plugin" class="md-nav__link">
+    cobertura-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jacoco-maven-plugin" class="md-nav__link">
+    jacoco-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maven-project-info-reports-plugin" class="md-nav__link">
+    maven-project-info-reports-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versions-maven-plugin" class="md-nav__link">
+    versions-maven-plugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hibernate-ehcache" class="md-nav__link">
+    hibernate-ehcache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pending" class="md-nav__link">
+    Pending
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resteasy-spring" class="md-nav__link">
+    resteasy-spring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  
+
+
+
+<h1 id="maven">Maven</h1>
+<h2 id="generating-project">Generating project</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># oh-my-zsh</span>
+mvnag
+
+mvn archetype:generate -B -DarchetypeGroupId<span class="o">=</span>org.apache.maven.archetypes -DarchetypeArtifactId<span class="o">=</span>maven-archetype-quickstart -DarchetypeVersion<span class="o">=</span><span class="m">1</span>.1 -DgroupId<span class="o">=</span>org.deliwala -DartifactId<span class="o">=</span>sample-project -DVersion<span class="o">=</span><span class="m">0</span>.1-SNAPSHOT
+
+<span class="c1"># or shorter</span>
+mvn archetype:generate -B -DgroupId<span class="o">=</span>org.deliwala -DartifactId<span class="o">=</span>sample-project -Dversion<span class="o">=</span><span class="m">0</span>.0.1 -DarchetypeArtifactId<span class="o">=</span>maven-archetype-quickstart
+
+<span class="c1"># quiet mode</span>
+mvn -q clean package
+
+<span class="c1"># verbose mode</span>
+mvn -X clean package
+</code></pre></div>
+<h2 id="compiler-option">Compiler option</h2>
+<div class="highlight"><pre><span></span><code>mvn compile
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+    <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h2 id="skipping-test">Skipping test</h2>
+<p>Using surefire plugin:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.19.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;skipTests&gt;</span>true<span class="nt">&lt;/skipTests&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="cm">&lt;!-- or --&gt;</span>
+<span class="nt">&lt;properties&gt;</span>
+  <span class="nt">&lt;maven.test.skip&gt;</span>true<span class="nt">&lt;/maven.test.skip&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ mvn -q clean package -DskipTests
+$ mvn -q clean package -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h2 id="generating-fat-jar-as-executable">Generating fat-jar as executable</h2>
+<p>Three approaches explained:</p>
+<div class="highlight"><pre><span></span><code>$ mvn clean package
+$ java -jar &lt;outputfolder&gt;/some-fat.jar
+</code></pre></div>
+<p>With maven assembly plugin, all dependencies are inside the jar file.  The drawback is the plugin does not  support renaming packages  (shade plugin fixes that). </p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-assembly-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;archive&gt;</span>
+            <span class="nt">&lt;manifest&gt;</span>
+                <span class="nt">&lt;mainClass&gt;</span>
+                    some.package.Class
+                <span class="nt">&lt;/mainClass&gt;</span>
+            <span class="nt">&lt;/manifest&gt;</span>
+        <span class="nt">&lt;/archive&gt;</span>
+        <span class="nt">&lt;descriptorRefs&gt;</span>
+            <span class="nt">&lt;descriptorRef&gt;</span>jar-with-dependencies<span class="nt">&lt;/descriptorRef&gt;</span>
+        <span class="nt">&lt;/descriptorRefs&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>make-assembly<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>single<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>With shade plugin, package in an uber-jar to include all dependencies and optionally shade i.e. renaming the packages of some dependencies. </p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;configuration&gt;</span>
+            <span class="nt">&lt;shadedArtifactAttached&gt;</span>true<span class="nt">&lt;/shadedArtifactAttached&gt;</span>
+            <span class="cm">&lt;!-- default is &lt;project-name&gt;-&lt;version&gt;-shaded.jar --&gt;</span>
+            <span class="nt">&lt;finalName&gt;</span>user-${artifactId}-${version}<span class="nt">&lt;/finalName&gt;</span>
+            <span class="nt">&lt;transformers&gt;</span>
+                <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>some.package.Class<span class="nt">&lt;/mainClass&gt;</span>
+                    <span class="nt">&lt;build-Number&gt;</span>123<span class="nt">&lt;/buildNumber&gt;</span>
+                <span class="nt">&lt;/transformer&gt;</span>
+            <span class="nt">&lt;/transformers&gt;</span>
+            <span class="nt">&lt;filters&gt;</span>
+                <span class="nt">&lt;filter&gt;</span>
+                    <span class="nt">&lt;artifact&gt;</span>*:*<span class="nt">&lt;/artifact&gt;</span>
+                    <span class="nt">&lt;excludes&gt;</span>
+                        <span class="nt">&lt;exclude&gt;</span>META-INF/*.SF<span class="nt">&lt;/exclude&gt;</span>
+                        <span class="nt">&lt;exclude&gt;</span>META-INF/*.DSA<span class="nt">&lt;/exclude&gt;</span>
+                        <span class="nt">&lt;exclude&gt;</span>META-INF/*.RSA<span class="nt">&lt;/exclude&gt;</span>
+                    <span class="nt">&lt;/excludes&gt;</span>
+                <span class="nt">&lt;/filter&gt;</span>
+            <span class="nt">&lt;/filters&gt;</span>
+        <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>Use a two step process with the maven dependency plugin to create jar by copying all dependencies into <code>/libs</code> folder and then using the maven jar plugin to create executable and classpath-aware jar with the link to the dependencies from the maven dependency plugin.  These approach does not create a fat jar, instead the executable jar will only run if the <code>/libs</code> folder will be accessible for a jar.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>copy-dependencies<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>prepare-package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>copy-dependencies<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;outputDirectory&gt;</span>
+                    ${project.build.directory}/libs
+                <span class="nt">&lt;/outputDirectory&gt;</span>
+                <span class="nt">&lt;excludeArtfiacts&gt;</span>junit<span class="nt">&lt;/excludeArtfiacts&gt;</span>
+                <span class="nt">&lt;overWriteIfNew&gt;</span>true<span class="nt">&lt;/overWriteIfNew&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>configuration&gt;
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>then use the maven jar plugin </p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;archive&gt;</span>
+            <span class="nt">&lt;manifest&gt;</span>
+                <span class="nt">&lt;addDefaultImplementationEntries&gt;</span>true<span class="nt">&lt;/addDefaultImplementationEntries&gt;</span>
+                <span class="nt">&lt;addDefaultSpecificationEntries&gt;</span>true<span class="nt">&lt;/addDefaultSpecificationEntries&gt;</span>
+                <span class="nt">&lt;addClasspath&gt;</span>true<span class="nt">&lt;/addClasspath&gt;</span>
+                <span class="nt">&lt;classpathPrefix&gt;</span>libs/<span class="nt">&lt;/classpathPrefix&gt;</span>
+                <span class="nt">&lt;mainClass&gt;</span>some.package.App<span class="nt">&lt;/mainClass&gt;</span>
+            <span class="nt">&lt;/manifest&gt;</span>
+        <span class="nt">&lt;/archive&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h2 id="executing-program-in-mvn">Executing program in mvn</h2>
+<h3 id="execjava">exec:java</h3>
+<p>Class provided in command line</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- exec:java -D&lt;args&gt; --&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="cm">&lt;!-- no configuration, class injected from command line --&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>Class provided in pom</p>
+<div class="highlight"><pre><span></span><code>mvn exec:exec
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;mainClass&gt;</span>org.some.package.MainClass<span class="nt">&lt;/mainClass&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="execjavaapp1">exec:java@App1</h3>
+<p>Wire multiple main classes</p>
+<div class="highlight"><pre><span></span><code>mvn exec:java@App1
+mvn exec:java@App2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>App1<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;mainClass&gt;</span>org.some.package.MainClass1<span class="nt">&lt;/mainClass&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>App2<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;mainClass&gt;</span>org.some.package.MainClass2<span class="nt">&lt;/mainClass&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>Alternatively</p>
+<div class="highlight"><pre><span></span><code>mvn exec:exec@run-app
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- or 3. using exec:java or exec:exec@run-app --&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>run-app<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>exec<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;executable&gt;</span>java<span class="nt">&lt;/executable&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-jar<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>target/${project.artifactId}-${project.version}-fat.jar<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="execexec">exec:exec</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;executable&gt;</span>java<span class="nt">&lt;/executable&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-classpath<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;classpath</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>${mainClass}<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>${port}<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-Xms512m<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-Xmx512m<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-XX:NewRatio=3<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCTimeStamps<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCDetails<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>-Xloggc:gc.log<span class="nt">&lt;/argument&gt;</span>
+      <span class="nt">&lt;argument&gt;</span>${args}<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+
+<span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;mainClass&gt;</span>some.package.Class<span class="nt">&lt;/mainClass&gt;</span>
+  <span class="nt">&lt;port&gt;</span>8080<span class="nt">&lt;/port&gt;</span>
+  <span class="nt">&lt;args&gt;</span>...<span class="nt">&lt;/args&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</code></pre></div>
+<h3 id="execexecapp">exec:exec@App</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>?<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>App1<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;executable&gt;</span>java<span class="nt">&lt;/executable&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xms512m<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xmx512m<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:NewRatio=3<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCTimeStamps<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCDetails<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xloggc:gc.log<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-classpath<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;classpath</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>org.some.package.App1<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>${args}<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>App2<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;executable&gt;</span>java<span class="nt">&lt;/executable&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xms512m<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xmx512m<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:NewRatio=3<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCTimeStamps<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-XX:+PrintGCDetails<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-Xloggc:gc.log<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-classpath<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;classpath</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>org.some.package.App2<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>${args}<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="examples">Examples</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># some examples run the program in the same jvm that loaded mvn.</span>
+
+<span class="c1"># Example 1</span>
+$ mvn exec:java -Dexec.mainClass<span class="o">=</span><span class="s2">&quot;org.some.package.MainClass&quot;</span> -Dexec.args<span class="o">=</span><span class="s2">&quot;arg1 arg2&quot;</span>
+
+<span class="c1"># Example 2</span>
+$ mvn exec:java -Dexec.args<span class="o">=</span><span class="s2">&quot;arg1 arg2&quot;</span>
+$ mvn exec:java@App1
+$ mvn exec:java@App2
+
+<span class="c1"># Example 3</span>
+$ mvn exec:java -Dexec.args<span class="o">=</span><span class="s2">&quot;arg1 arg2&quot;</span>
+$ mvn exec:exec@run-app
+$ mvn exec:exec
+$ mvn exec:exec@App1
+</code></pre></div>
+<h2 id="using-profile">Using profile</h2>
+<div class="highlight"><pre><span></span><code>$ mvn -P&lt;some-profile-name&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;profiles&gt;</span>
+  <span class="nt">&lt;profile&gt;</span>
+    <span class="nt">&lt;id&gt;</span>some-profile-name<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;build&gt;</span>
+      <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>...<span class="nt">&lt;/plugin&gt;</span>
+      <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>...<span class="nt">&lt;/properties&gt;</span>
+  <span class="nt">&lt;/profile&gt;</span>
+<span class="nt">&lt;/profiles&gt;</span>
+</code></pre></div>
+<h2 id="using-vertx-embedded">Using Vertx embedded</h2>
+<blockquote>
+<p>Vertx is embedded inside the program rather than used via verticle.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;properties&gt;</span>
+    <span class="cm">&lt;!-- the main class --&gt;</span>
+    <span class="nt">&lt;exec.mainClass&gt;</span>io.vertx.example.HelloWorldEmbedded<span class="nt">&lt;/exec.mainClass&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;transformers&gt;</span>
+          <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;manifestEntries&gt;</span>
+              <span class="nt">&lt;Main-Class&gt;</span>${exec.mainClass}<span class="nt">&lt;/Main-Class&gt;</span>
+            <span class="nt">&lt;/manifestEntries&gt;</span>
+          <span class="nt">&lt;/transformer&gt;</span>
+          <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>META-INF/services/io.vertx.core.spi.VerticleFactory<span class="nt">&lt;/resource&gt;</span>
+          <span class="nt">&lt;/transformer&gt;</span>
+        <span class="nt">&lt;/transformers&gt;</span>
+        <span class="nt">&lt;artifactSet&gt;</span>
+        <span class="nt">&lt;/artifactSet&gt;</span>
+        <span class="nt">&lt;outputFile&gt;</span>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar<span class="nt">&lt;/outputFile&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h2 id="using-vertx-verticle">Using Vertx verticle</h2>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;properties&gt;</span>
+  <span class="cm">&lt;!-- the main verticle class name --&gt;</span>
+  <span class="nt">&lt;main.verticle&gt;</span>io.vertx.example.HelloWorldVerticle<span class="nt">&lt;/main.verticle&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;transformers&gt;</span>
+          <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;manifestEntries&gt;</span>
+              <span class="nt">&lt;Main-Class&gt;</span>io.vertx.core.Launcher<span class="nt">&lt;/Main-Class&gt;</span>
+              <span class="nt">&lt;Main-Verticle&gt;</span>${main.verticle}<span class="nt">&lt;/Main-Verticle&gt;</span>
+            <span class="nt">&lt;/manifestEntries&gt;</span>
+          <span class="nt">&lt;/transformer&gt;</span>
+          <span class="nt">&lt;transformer</span> <span class="na">implementation=</span><span class="s">&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>META-INF/services/io.vertx.core.spi.VerticleFactory<span class="nt">&lt;/resource&gt;</span>
+          <span class="nt">&lt;/transformer&gt;</span>
+        <span class="nt">&lt;/transformers&gt;</span>
+        <span class="nt">&lt;artifactSet&gt;</span>
+        <span class="nt">&lt;/artifactSet&gt;</span>
+        <span class="nt">&lt;outputFile&gt;</span>
+          ${project.build.directory}/${project.artifactId}-${project.version}-fat.jar
+        <span class="nt">&lt;/outputFile&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+
+<span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.4.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>run<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>java<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;mainClass&gt;</span>io.vertx.core.Launcher<span class="nt">&lt;/mainClass&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>run<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>${main.verticle}<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>run-app<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>exec<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;executable&gt;</span>java<span class="nt">&lt;/executable&gt;</span>
+        <span class="nt">&lt;arguments&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>-jar<span class="nt">&lt;/argument&gt;</span>
+          <span class="nt">&lt;argument&gt;</span>target/${project.artifactId}-${project.version}-fat.jar<span class="nt">&lt;/argument&gt;</span>
+        <span class="nt">&lt;/arguments&gt;</span>
+      <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h2 id="using-vertx-maven-service-factory">Using Vertx maven service factory</h2>
+<blockquote>
+<p>May not be recommended, as code depends on maven service factory.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># running the verticle</span>
+<span class="c1"># pom for my-verticle has minimal settings</span>
+$ vertx run maven:io.vertx:maven-service-factory-verticle:3.8.1::my-verticle
+
+<span class="c1"># running the API to deploy the verticle</span>
+$ vertx run io.vertx.examples.MyDeployingVerticle -cp target/maven-service-factory-api-3.8.1.jar
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- for the API project --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.vertx<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>vertx-maven-service-factory<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;classifier&gt;</span>shaded<span class="nt">&lt;/classifier&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h2 id="plugins">Plugins</h2>
+<h3 id="overview">Overview</h3>
+<p>https://www.baeldung.com/maven</p>
+<h3 id="maven-resource-plugin">maven-resource-plugin</h3>
+<p>Copy resources to an output folder. It allows us to keep main and test resources separate in the project, and only use the main resources for the deployment purposes.</p>
+<p>https://www.baeldung.com/maven-resources-plugin</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;outputDirectory&gt;</span>output-resources<span class="nt">&lt;/outputDirectory&gt;</span>
+    <span class="nt">&lt;resources&gt;</span>
+        <span class="nt">&lt;resource&gt;</span>
+            <span class="nt">&lt;directory&gt;</span>input-resources<span class="nt">&lt;/directory&gt;</span>
+            <span class="nt">&lt;excludes&gt;</span>
+                <span class="nt">&lt;exclude&gt;</span>*.png<span class="nt">&lt;/exclude&gt;</span>
+            <span class="nt">&lt;/excludes&gt;</span>
+            <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span> <span class="cm">&lt;!-- helps replace parameters in files --&gt;</span>
+        <span class="nt">&lt;/resource&gt;</span>
+    <span class="nt">&lt;/resources&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># copies all files except *.png from /input-resources to /output-resources</span>
+mvn resources:resources
+<span class="c1"># resources goal is bound to process-resource phase</span>
+mvn process-resources
+</code></pre></div>
+<blockquote>
+<p>Replace property placeholders with values</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>&lt;properties&gt;
+    &lt;resources.name&gt;Baeldung&lt;/resources.name&gt;
+&lt;/properties&gt;
+
+Welcome to ${resources.name}!
+</code></pre></div>
+<h3 id="maven-checkstyle-plugin">maven-checkstyle-plugin</h3>
+<p>Two pre-defined checkstyles: https://github.com/checkstyle/checkstyle/tree/master/src/main/resources</p>
+<p>https://www.baeldung.com/checkstyle-java</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;reporting&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>maven-checkstyle-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>...<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;configLocation&gt;</span>checkstyle.xml<span class="nt">&lt;/configLocation&gt;</span>
+                <span class="nt">&lt;logViolationsToConsole&gt;</span>true<span class="nt">&lt;/logViolationsToConsole&gt;</span>
+                <span class="nt">&lt;skip&gt;</span>false<span class="nt">&lt;/skip&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;executions&gt;</span>
+                <span class="nt">&lt;execution&gt;</span>
+                    <span class="nt">&lt;goals&gt;</span>
+                        <span class="nt">&lt;goal&gt;</span>check<span class="nt">&lt;/goal&gt;</span> <span class="cm">&lt;!-- run in verify phase of build --&gt;</span>
+                    <span class="nt">&lt;/goals&gt;</span>
+                <span class="nt">&lt;/execution&gt;</span>
+            <span class="nt">&lt;/executions&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/reporting&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># runs checkstyle automatically</span>
+mvn clean install
+<span class="c1"># doesn&#39;t need the execution xml block in pom</span>
+mvn checkstyle:check
+</code></pre></div>
+<h3 id="maven-compiler-plugin">maven-compiler-plugin</h3>
+<p>Plugin has two goals: <code>compile</code> and <code>testCompile</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+    <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+    <span class="cm">&lt;!-- pass to javac --&gt;</span>
+    <span class="nt">&lt;compilerArgs&gt;</span>
+        <span class="nt">&lt;arg&gt;</span>-Xlint:unchecked<span class="nt">&lt;/arg&gt;</span>
+    <span class="nt">&lt;/compilerArgs&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+
+<span class="cm">&lt;!-- or --&gt;</span>
+<span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mvn compile
+mvn test-compile
+</code></pre></div>
+<h3 id="maven-dependency-plugin">maven-dependency-plugin</h3>
+<p>Provides goals to work with dependencies like copying, unpacking, analyzing, resolving and many more.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>copy-dependencies<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>prepare-package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>copy-dependencies<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;outputDirectory&gt;</span>
+                    ${project.build.directory}/libs
+                <span class="nt">&lt;/outputDirectory&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>We specify the goal <em>copy-dependencies</em>, which tells Maven to copy dependencies into the specified <em>outputDirectory</em>, in this case <code>/libs</code>.</p>
+<hr />
+<p>https://crunchify.com/how-to-create-build-java-project-including-all-dependencies-using-maven-maven-resources-maven-dependency-maven-jar-plugin-tutorial/</p>
+<p>https://www.baeldung.com/maven-dependency-latest-version</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.1.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>dependency-analyze<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>analyze<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;failOnWarning&gt;</span>true<span class="nt">&lt;/failOnWarning&gt;</span>
+                <span class="nt">&lt;ignoreNonCompile&gt;</span>true<span class="nt">&lt;/ignoreNonCompile&gt;</span>
+                <span class="nt">&lt;ignoredDependencies&gt;</span>true<span class="nt">&lt;/ignoredDependencies&gt;</span>
+                <span class="nt">&lt;outputXML&gt;</span>true<span class="nt">&lt;/outputXML&gt;</span>
+                <span class="nt">&lt;ignoredUnusedDeclaredDependencies&gt;</span>
+                    <span class="nt">&lt;ignoredUnusedDeclaredDependency&gt;</span>commons-io:commons-io:jar:*<span class="nt">&lt;/ignoredUnusedDeclaredDependency&gt;</span>
+                <span class="nt">&lt;/ignoredUnusedDeclaredDependencies&gt;</span>
+                <span class="nt">&lt;ignoredUsedUndeclaredDependencies&gt;</span>
+                 <span class="nt">&lt;ignoredUsedUndeclaredDependency&gt;</span>org.apache.httpcomponents:httpcore:jar:*<span class="nt">&lt;/ignoredUsedUndeclaredDependency&gt;</span>
+                <span class="nt">&lt;/ignoredUsedUndeclaredDependencies&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>validate<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>copy<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;outputDirectory&gt;</span>${project.build.directory}/endorsed<span class="nt">&lt;/outputDirectory&gt;</span>
+                <span class="nt">&lt;silent&gt;</span>true<span class="nt">&lt;/silent&gt;</span>
+                <span class="nt">&lt;artifactItems&gt;</span>
+                    <span class="nt">&lt;artifactItem&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>javax<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>javaee-endorsed-api<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>6.0<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;type&gt;</span>jar<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;/artifactItem&gt;</span>
+                <span class="nt">&lt;/artifactItems&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mvn dependency:help
+mvn dependency:help -Ddetail<span class="o">=</span><span class="nb">true</span> -Dgoal<span class="o">=</span>analyze
+mvn help:describe -Dplugin<span class="o">=</span><span class="s2">&quot;org.apache.maven.plugins:maven-dependency-plugin&quot;</span>
+mvn help:describe -Dplugin<span class="o">=</span><span class="s2">&quot;org.apache.maven.plugins:maven-dependency-plugin&quot;</span> -Ddetail<span class="o">=</span><span class="nb">true</span> -Dgoal<span class="o">=</span>analyze
+mvn dependency:analyze
+mvn dependency:resolve
+mvn dependency:tree
+mvn dependency:purge-local-repository
+</code></pre></div>
+<h3 id="maven-jar-plugin">maven-jar-plugin</h3>
+<p>This plugin provides the capability to build and sign jars. It compiles the java files under src/main/java and /src/main/resources/ and it <em>doesn't include the dependencies JAR files</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;archive&gt;</span>
+            <span class="nt">&lt;manifest&gt;</span>
+                <span class="nt">&lt;addClasspath&gt;</span>true<span class="nt">&lt;/addClasspath&gt;</span>
+                <span class="nt">&lt;classpathPrefix&gt;</span>libs/<span class="nt">&lt;/classpathPrefix&gt;</span>
+                <span class="nt">&lt;mainClass&gt;</span>
+                    com.some.main.Class
+                <span class="nt">&lt;/mainClass&gt;</span>
+            <span class="nt">&lt;/manifest&gt;</span>
+        <span class="nt">&lt;/archive&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>In the <em>manifest</em> configuration we  add a classpath, with all dependencies (*<em>libs/</em>), and provide the information about the fully qualified named of the main class. The advantages and disadvantages of this approach are:</p>
+<ul>
+<li><strong>pros</strong> – transparent process</li>
+<li><strong>cons</strong> – manual, dependencies are outside of the final <em>jar</em>, so the executable <em>jar</em> will only run if the <em>libs</em> folder will be accessible and visible to the <em>jar</em></li>
+</ul>
+<h3 id="maven-assembly-plugin">maven-assembly-plugin</h3>
+<p>The assembly plugin allows to aggregate the project output along with its dependencies, modules, site documentation, and other files into a single, runnable package. Plugin extracts dependency jars into raw classes, and group it together. It can also be build an executable jar by specifying the main class. It works best in project with less dependencies only.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-assembly-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>single<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;archive&gt;</span>
+                <span class="nt">&lt;manifest&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>
+                        com.baeldung.executable.ExecutableMavenJar
+                    <span class="nt">&lt;/mainClass&gt;</span>
+                <span class="nt">&lt;/manifest&gt;</span>
+                <span class="nt">&lt;/archive&gt;</span>
+                <span class="nt">&lt;descriptorRefs&gt;</span>
+                    <span class="nt">&lt;descriptorRef&gt;</span>jar-with-dependencies<span class="nt">&lt;/descriptorRef&gt;</span>
+                <span class="nt">&lt;/descriptorRefs&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>We need to provide the information about the main class and the plugin will automatically copy all required dependencies into a <em>jar</em> file. In the <em>descriptorRefs</em> part , we provided the name, that will be added to the project name. Output in our example will be named as <em>whatever-with-dependencies.jar.</em></p>
+<ul>
+<li>
+<p><strong>pros</strong> – dependencies inside the <em>jar</em> file</p>
+</li>
+<li>
+<p><strong>cons</strong> – basic control of packaging your artifact, for example, there is no class relocation support</p>
+</li>
+</ul>
+<h3 id="maven-shade-plugin">maven-shade-plugin</h3>
+<ul>
+<li><a href="[https://medium.com/@randilfernando/when-to-use-maven-jar-maven-assembly-or-maven-shade-ffc3f76ba7a6#:~:text=maven%2Dassembly%2Dplugin%20%3A%20This,by%20specifying%20the%20main%20class.&amp;text=maven%2Dshade%2Dplugin%20%3A%20It,dependencies%20into%20one%20uber%2Djar.](https://medium.com/@randilfernando/when-to-use-maven-jar-maven-assembly-or-maven-shade-ffc3f76ba7a6#:~:text=maven-assembly-plugin %3A This,by specifying the main class.&amp;text=maven-shade-plugin %3A It,dependencies into one uber-jar.)">When to use maven jar, assembly, and shade plugin</a></li>
+</ul>
+<p>It packages all dependencies into one uber-jar. It can also build an executable jar by specifying the main class. This plugin is useful as it merges content of specific files instead of overwriting them by <a href="http://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html">Relocating Classes</a>. This is needed when there are resource files that have the same name across the jars and the plugin tries to package all the resource files.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;shadedArtifactAttached&gt;</span>true<span class="nt">&lt;/shadedArtifactAttached&gt;</span>
+                <span class="nt">&lt;transformers&gt;</span>
+                    <span class="nt">&lt;transformer</span> <span class="na">implementation=</span>
+<span class="s">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;mainClass&gt;</span>com.baeldung.executable.ExecutableMavenJar<span class="nt">&lt;/mainClass&gt;</span>
+                <span class="nt">&lt;/transformer&gt;</span>
+            <span class="nt">&lt;/transformers&gt;</span>
+            <span class="nt">&lt;createDependencyReducedPom&gt;</span>false<span class="nt">&lt;/createDependencyReducedPom&gt;</span>
+        <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>There are three main parts of this configuration:</p>
+<p>First, <em><shadedArtifactAttached></em> marks all dependencies to be packaged into the <em>jar</em>. Second, <a href="https://maven.apache.org/plugins/maven-shade-plugin/usage.html">the transformer implementation</a>; we used the standard one in our example. Finally, specify the main class of our application. The output file will be named <em>whatever-0.1.0-SNAPSHOT-shaded.jar</em>.</p>
+<ul>
+<li><strong>pros</strong> – dependencies inside the <em>jar</em> file, advanced control of packaging, with shading and class relocation</li>
+<li><strong>cons</strong> – complex configuration</li>
+</ul>
+<hr />
+<p>If the uber JAR is used as a dependency of some other project, directly including classes from the artifact's dependencies in the uber JAR can cause class loading conflicts due to duplicate classes on the class path. To address this issue, one can relocate the classes which get included in the shaded artifact in order to create a private copy of their bytecode:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- a vesion that specifies excludes --&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;relocations&gt;</span>
+        <span class="nt">&lt;relocation&gt;</span>
+            <span class="nt">&lt;pattern&gt;</span>org.codehaus.plexus.util<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;shadedPattern&gt;</span>org.shaded.plexus.util<span class="nt">&lt;/shadedPattern&gt;</span>
+            <span class="nt">&lt;excludes&gt;</span>
+                <span class="nt">&lt;exclude&gt;</span>org.codehaus.plexus.util.xml.Xpp3Dom<span class="nt">&lt;/exclude&gt;</span>
+                <span class="nt">&lt;exclude&gt;</span>org.codehaus.plexus.util.xml.pull.*<span class="nt">&lt;/exclude&gt;</span>
+            <span class="nt">&lt;/excludes&gt;</span>
+        <span class="nt">&lt;/relocation&gt;</span>
+    <span class="nt">&lt;/relocations&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+
+<span class="cm">&lt;!-- a narrower version that specifies includes --&gt;</span>
+<span class="nt">&lt;relocation&gt;</span>
+    <span class="nt">&lt;pattern&gt;</span>org.codehaus.plexus.util<span class="nt">&lt;/pattern&gt;</span>
+    <span class="nt">&lt;shadedPattern&gt;</span>org.shaded.plexus.util<span class="nt">&lt;/shadedPattern&gt;</span>
+    <span class="nt">&lt;includes&gt;</span>
+        <span class="nt">&lt;include&gt;</span>org.codehaud.plexus.util.io.*<span class="nt">&lt;/include&gt;</span>
+    <span class="nt">&lt;/includes&gt;</span>
+<span class="nt">&lt;/relocation&gt;</span>
+</code></pre></div>
+<p>The above instructs the plugin to move classes of the package <code>org.codehaus.plexus.util</code> and its subpackages into the package <code>org.shaded.plexus.util</code> by moving the corresponding JAR file entries and rewritting the affected bytecode. The class <code>Xpp3Dom</code> and some others will remain in their original package.</p>
+<h3 id="maven-install-plugin-local-repo">maven-install-plugin (local repo)</h3>
+<p>We’ll add the artifact in source control and <em>install it locally</em> before the build process needs it.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-install-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.5.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.somegroup<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>someartifact<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+        <span class="nt">&lt;file&gt;</span>${basedir}/dependencies/someartifact-1.0.jar<span class="nt">&lt;/file&gt;</span>
+        <span class="cm">&lt;!-- if pom is not required --&gt;</span>
+        <span class="nt">&lt;generatePom&gt;</span>true<span class="nt">&lt;/generatePom&gt;</span>
+        <span class="cm">&lt;!-- or if pom is provided --&gt;</span>
+        <span class="nt">&lt;generatePom&gt;</span>false<span class="nt">&lt;/generatePom&gt;</span>
+        <span class="nt">&lt;pomFile&gt;</span>${basedir}/dependencies/someartifact-1.0.pom<span class="nt">&lt;/pomFile&gt;</span>
+        <span class="cm">&lt;!-- done --&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>install-jar-lib<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>install-file<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>validate<span class="nt">&lt;/phase&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>The Artifact is defined in the <em><configuration></em> element.  Next part defines the <em>packaging</em> of the artifact as <em>jar</em>. Next, we provide the <strong>location</strong> of the actual jar file to be installed – this can be an absolute file path or relative, using the <strong><a href="https://cwiki.apache.org/confluence/display/MAVEN/Maven+Properties+Guide">properties</a> available in Maven</strong>. In this case, the <em>${basedir}</em> property represents the root of the project, namely the location where the <em>pom.xml</em> file exists. This means that the <em>someartifact-1.0.jar</em> file needs to be placed in a <em>/dependencies/</em> directory under the root. Finally, there are several other <a href="https://maven.apache.org/plugins/maven-install-plugin/install-file-mojo.html">optional details</a> that can be configured as well.</p>
+<p>To execute, run the following two commands.</p>
+<div class="highlight"><pre><span></span><code>mvn validate
+mvn clean install
+</code></pre></div>
+<ul>
+<li>
+<p>The <em><generatePom></em> setting depends on whether we need to supply a <em>pom.xml</em> file for the artifact or not - which depends on the <strong>runtime dependencies</strong> of the artifact itself. If the artifact has runtime dependencies on other jars, those jars will need to be present <strong>on the classpath</strong> at runtime as well. With a simple artifact that should not be a problem, as it will likely have no dependencies at runtime.</p>
+</li>
+<li>
+<p>If the artifact is complex and if dependencies are not already in the classpath, they must be added. One way to do that is by defining these new dependencies manually in the pom file of the project. A better solution is to provide a custom <em>pom.xml</em> file along with the installed artifact:</p>
+</li>
+</ul>
+<p>This will allow Maven to resolve all dependencies of the artifact defined in this custom <em>pom.xml</em>, without having to define them manually in the main pom file of the project.</p>
+<h3 id="maven-deploy-plugin-nexus-repo">maven-deploy-plugin (nexus repo)</h3>
+<blockquote>
+<p>Deprecated, use nexus-staging-maven-plugin instead.</p>
+</blockquote>
+<p>Deploy the artifacts of a project <em>to Nexus</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;distributionManagement&gt;</span>
+    <span class="nt">&lt;snapshotRepository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>nexus-snapshots<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://localhost:8081/nexus/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/snapshotRepository&gt;</span>
+<span class="nt">&lt;/distributionManagement&gt;</span>
+
+<span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-deploy-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.8.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>default-deploy<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>deploy<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>deploy<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="nexus-staging-maven-plugin">nexus-staging-maven-plugin</h3>
+<p>The <em>maven-deploy-plugin</em> is a viable option to handle the task of deploying to artifacts of a project to Nexus, but it was not built to take full advantage of Nexus and Sonatype built a Nexus specific plugin – the <em>nexus-staging-maven-plugin</em>. So we first need to disable the default deploy plugin.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-deploy-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>${maven-deploy-plugin.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;skip&gt;</span>true<span class="nt">&lt;/skip&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.sonatype.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>nexus-staging-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>default-deploy<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>deploy<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>deploy<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;serverId&gt;</span>nexus<span class="nt">&lt;/serverId&gt;</span>
+        <span class="nt">&lt;nexusUrl&gt;</span>http://localhost:8081/nexus/<span class="nt">&lt;/nexusUrl&gt;</span>
+        <span class="nt">&lt;skipStaging&gt;</span>true<span class="nt">&lt;/skipStaging&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>Since we do not need staging functionality of <em>-SNAPSHOT</em> artifacts to Nexus, we disable using the <em><skipStaging></em> element. By default, the deploy goal includes the staging workflow, which is recommended for release builds.</p>
+<div class="highlight"><pre><span></span><code>mvn clean deploy -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="maven-release-plugin">maven-release-plugin</h3>
+<ul>
+<li>https://www.baeldung.com/maven-release-nexus</li>
+</ul>
+<p>Plugin tags the code in the source control and hence requires the <em>SCM</em> section.</p>
+<p>Read more: https://javarevisited.blogspot.com/2016/10/difference-between-mvn-install-release-and-deploy-in-Maven.html#ixzz6OcYjDpgI</p>
+<p>We'll configure the <strong>Release Process with Maven</strong> – both in the <em>pom</em> of the project as well as in a Jenkins job. The Release process will interact with the Source Control of the project – this means we first need to define the <em><scm></em> element in our <em>pom.xml</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- define the repo --&gt;</span>
+<span class="nt">&lt;distributionManagement&gt;</span>
+   <span class="nt">&lt;repository&gt;</span>
+      <span class="nt">&lt;id&gt;</span>nexus-releases<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;url&gt;</span>http://localhost:8081/nexus/content/repositories/releases<span class="nt">&lt;/url&gt;</span>
+   <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/distributionManagement&gt;</span>
+
+<span class="cm">&lt;!-- define the source control --&gt;</span>
+<span class="nt">&lt;scm&gt;</span>
+   <span class="nt">&lt;connection&gt;</span>scm:git:https://github.com/user/project.git<span class="nt">&lt;/connection&gt;</span>
+   <span class="nt">&lt;url&gt;</span>http://github.com/user/project<span class="nt">&lt;/url&gt;</span>
+   <span class="nt">&lt;developerConnection&gt;</span>scm:git:https://github.com/user/project.git<span class="nt">&lt;/developerConnection&gt;</span>
+<span class="nt">&lt;/scm&gt;</span>
+<span class="cm">&lt;!-- or using git protocol --&gt;</span>
+<span class="nt">&lt;scm&gt;</span>
+   <span class="nt">&lt;connection&gt;</span>scm:git:git@github.com:user/project.git<span class="nt">&lt;/connection&gt;</span>
+   <span class="nt">&lt;url&gt;</span>scm:git:git@github.com:user/project.git<span class="nt">&lt;/url&gt;</span>
+   <span class="nt">&lt;developerConnection&gt;</span>scm:git:git@github.com:user/project.git<span class="nt">&lt;/developerConnection&gt;</span>
+<span class="nt">&lt;/scm&gt;</span>
+
+<span class="nt">&lt;plugin&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>maven-release-plugin<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>2.4.2<span class="nt">&lt;/version&gt;</span>
+   <span class="nt">&lt;configuration&gt;</span>
+      <span class="nt">&lt;tagNameFormat&gt;</span>v@{project.version}<span class="nt">&lt;/tagNameFormat&gt;</span>
+      <span class="nt">&lt;autoVersionSubmodules&gt;</span>true<span class="nt">&lt;/autoVersionSubmodules&gt;</span>
+      <span class="nt">&lt;releaseProfiles&gt;</span>releases<span class="nt">&lt;/releaseProfiles&gt;</span>
+   <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+
+<span class="nt">&lt;profiles&gt;</span>
+   <span class="nt">&lt;profile&gt;</span>
+      <span class="nt">&lt;id&gt;</span>releases<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;build&gt;</span>
+         <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+               <span class="nt">&lt;groupId&gt;</span>org.sonatype.plugins<span class="nt">&lt;/groupId&gt;</span>
+               <span class="nt">&lt;artifactId&gt;</span>nexus-staging-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+               <span class="nt">&lt;version&gt;</span>1.5.1<span class="nt">&lt;/version&gt;</span>
+               <span class="nt">&lt;executions&gt;</span>
+                  <span class="nt">&lt;execution&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>default-deploy<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;phase&gt;</span>deploy<span class="nt">&lt;/phase&gt;</span>
+                     <span class="nt">&lt;goals&gt;</span>
+                        <span class="nt">&lt;goal&gt;</span>deploy<span class="nt">&lt;/goal&gt;</span>
+                     <span class="nt">&lt;/goals&gt;</span>
+                  <span class="nt">&lt;/execution&gt;</span>
+               <span class="nt">&lt;/executions&gt;</span>
+               <span class="nt">&lt;configuration&gt;</span>
+                  <span class="nt">&lt;serverId&gt;</span>nexus-releases<span class="nt">&lt;/serverId&gt;</span>
+                  <span class="nt">&lt;nexusUrl&gt;</span>http://localhost:8081/nexus/<span class="nt">&lt;/nexusUrl&gt;</span>
+                  <span class="nt">&lt;skipStaging&gt;</span>true<span class="nt">&lt;/skipStaging&gt;</span>
+               <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+         <span class="nt">&lt;/plugins&gt;</span>
+      <span class="nt">&lt;/build&gt;</span>
+   <span class="nt">&lt;/profile&gt;</span>
+<span class="nt">&lt;/profiles&gt;</span>
+</code></pre></div>
+<p>The <em>releaseProfiles</em> configuration will force a Maven's  <em>releases</em> profile to become active during the Release process.</p>
+<p><img src="assets/image-20200606135644580.png" alt="image-20200606135644580" style="zoom:25%;" /></p>
+<div class="highlight"><pre><span></span><code>mvn release:prepare -DdryRun<span class="o">=</span><span class="nb">true</span>
+mvn release:clean
+mvn release<span class="p">;</span>prepare
+mvn release:perform
+mvn release:rollback
+</code></pre></div>
+<ul>
+<li><em>mvn release:prepare</em></li>
+<li>currently POM contains <em>0.1-SNAPSHOT</em>.</li>
+<li>performs checks, no dependencies should be <em>SNAPSHOT</em>.</li>
+<li>update the version in the pom to a major version and remove the <em>SNAPSHOT</em>. POM will now have <em>0.1</em>.</li>
+<li>run tests, commit and push the changes</li>
+<li>create a tag from the non-SNAPSHOT versioned code.</li>
+<li>Update the pom and increase the major version  and add back the <em>SNAPSHOT</em>. The POM will now have <em>0.2-SNAPSHOT</em>.</li>
+<li>commit and push the changes.</li>
+<li><em>mvn release:prepare</em></li>
+<li>checkout the release tag - the pom here container <em>0.1</em>.</li>
+<li>build and deploy released code</li>
+</ul>
+<h3 id="release-using-jenkins">Release using Jenkins</h3>
+<p>Jenkins can perform the release process in one of two ways – it can either use it's own release plugins, or it can simply run perform the release with a standard maven job running the correct release steps. We”ll define two parameters: <em>releaseVersion=0.1</em> and <em>developmentVersion=0.2-SNAPSHOT</em>.</p>
+<div class="highlight"><pre><span></span><code>Release:Clean release:prepare release:perform
+   -DreleaseVersion<span class="o">=</span><span class="si">${</span><span class="nv">releaseVersion</span><span class="si">}</span> -DdevelopmentVersion<span class="o">=</span><span class="si">${</span><span class="nv">developmentVersion</span><span class="si">}</span>
+</code></pre></div>
+<h3 id="maven-surefile-plugin">maven-surefile-plugin</h3>
+<p>We can run the tests of a project using the *surefire* plugin. By default, this plugin generates XML reports in the directory <em>target/surefire-reports</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.21.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;excludes&gt;</span>
+            <span class="nt">&lt;exclude&gt;</span>DataTest.java<span class="nt">&lt;/exclude&gt;</span>
+        <span class="nt">&lt;/excludes&gt;</span>
+        <span class="nt">&lt;includes&gt;</span>
+            <span class="nt">&lt;include&gt;</span>DataCheck.java<span class="nt">&lt;/include&gt;</span>
+        <span class="nt">&lt;/includes&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="maven-failsafe-plugin">maven-failsafe-plugin</h3>
+<p>The <em>failsafe</em> plugin is used for integration tests of a project. It has two goals:</p>
+<ul>
+<li><em>integration-test</em> – run integration tests; this goal is bound to the <em>integration-test</em> phase by default</li>
+<li><em>verify</em> – verify that the integration tests passed; this goal is bound to the <em>verify</em> phase by default</li>
+</ul>
+<p>A test failure in the *integration-test* phase doesn't fail the build, allowing the phase *post-integration-test* to execute, where clean-up operations are performed.</p>
+<p>Failed tests, if any, are only reported during the <em>verify</em> phase, after the integration test environment has been torn down properly.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.21.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>integration-test<span class="nt">&lt;/goal&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>verify<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                ...
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="maven-clean-plugin">maven-clean-plugin</h3>
+<p>The <em>clean</em> plugin is already included in the super POM and cleans the files and directories generated during the previous build. By default, the plugin removes the <em>target</em> directory.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-clean-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;skip&gt;</span>false<span class="nt">&lt;/skip&gt;</span> <span class="cm">&lt;!-- to skip use true --&gt;</span>
+        <span class="nt">&lt;filesets&gt;</span>
+            <span class="nt">&lt;fileset&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>output-resources<span class="nt">&lt;/directory&gt;</span>
+            <span class="nt">&lt;/fileset&gt;</span>
+        <span class="nt">&lt;/filesets&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>auto-clean<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>initialize<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>clean<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="maven-verifier-plugin">maven-verifier-plugin</h3>
+<p>Verifies the existence or non-existence of files and directories, optionally checking file content against a regular expression. The <em>verifier</em> plugin is triggered only if it's explicitly added to the <em>pom.xml</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-verifier-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;verificationFile&gt;</span>input-resources/verifications.xml<span class="nt">&lt;/verificationFile&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>verify<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<p>The default location of the verification file is <em>src/test/verifier/verifications.xml</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;verifications</span>
+  <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/verifications/1.0.0&quot;</span>
+  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/verifications/1.0.0</span>
+<span class="s">  http://maven.apache.org/xsd/verifications-1.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;files&gt;</span>
+        <span class="nt">&lt;file&gt;</span>
+            <span class="nt">&lt;location&gt;</span>input-resources/baeldung.txt<span class="nt">&lt;/location&gt;</span>
+            <span class="nt">&lt;contains&gt;</span>Welcome<span class="nt">&lt;/contains&gt;</span>
+        <span class="nt">&lt;/file&gt;</span>
+    <span class="nt">&lt;/files&gt;</span>
+<span class="nt">&lt;/verifications&gt;</span>
+</code></pre></div>
+<h3 id="maven-site-plugin">maven-site-plugin</h3>
+<p>The plugin is already included in the super POM, and has two phases bound to goals of the <em>site</em> plugin by default:</p>
+<ul>
+<li><em>site</em> <strong>–</strong> generate a site for a single project; the generated site only shows information about the artifacts specified in the POM</li>
+<li><em>deploy</em> <strong>–</strong> deploy the generated site to the URL specified in the <em>distributionManagement</em> element of the POM</li>
+</ul>
+<p>In addition to <em>site</em> and <em>deploy</em>, the <em>site</em> plugin has several other goals to customize the content of the generated files and to control the deployment process.</p>
+<div class="highlight"><pre><span></span><code>mvn site:site
+<span class="c1"># or</span>
+mvn site
+</code></pre></div>
+<h3 id="maven-pmd-plugin">maven-pmd-plugin</h3>
+<p>Plugin is a static code analyzer, and the report is generated using the maven-site-plugin.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;reporting&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>maven-pmd-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.11.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/reporting&gt;</span>
+</code></pre></div>
+<h3 id="findbugs-maven-plugin">findbugs-maven-plugin</h3>
+<p>Another static code analyzer, available on IDE as well.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;reporting&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>findbugs-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.0.4<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/reporting&gt;</span>
+
+<span class="cm">&lt;!-- fail under some condition --&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>findbugs-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.0.4<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;effort&gt;</span>Max<span class="nt">&lt;/effort&gt;</span>
+        <span class="cm">&lt;!-- or custom --&gt;</span>
+        <span class="nt">&lt;onlyAnalyze&gt;</span>org.baeldung.web.controller.*<span class="nt">&lt;/onlyAnalyze&gt;</span>
+        <span class="nt">&lt;omitVisitors&gt;</span>FindNullDeref<span class="nt">&lt;/omitVisitors&gt;</span>
+        <span class="nt">&lt;visitors&gt;</span>FindReturnRef<span class="nt">&lt;/visitors&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>check<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mvn verify
+</code></pre></div>
+<h3 id="cobertura-maven-plugin">cobertura-maven-plugin</h3>
+<p>For code coverage.</p>
+<blockquote>
+<p>jacoco recommended over cobertura.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;reporting&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>cobertura-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.7<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/reporting&gt;</span>
+
+<span class="cm">&lt;!-- include or exclude certain classes --&gt;</span>
+<span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>cobertura-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.7<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;instrumentation&gt;</span>
+            <span class="nt">&lt;ignores&gt;</span>
+                <span class="nt">&lt;ignore&gt;</span>com/some/needed/package/*<span class="nt">&lt;/ignore&gt;</span>
+            <span class="nt">&lt;/ignores&gt;</span>
+            <span class="nt">&lt;excludes&gt;</span>
+                <span class="nt">&lt;exclude&gt;</span>com/some/ignore/package/*<span class="nt">&lt;/exclude&gt;</span>
+            <span class="nt">&lt;/excludes&gt;</span>
+        <span class="nt">&lt;/instrumentation&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+
+<span class="cm">&lt;!-- tolerance setting --&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;check&gt;</span>
+        <span class="nt">&lt;haltOnFailure&gt;</span>true<span class="nt">&lt;/haltOnFailure&gt;</span>
+        <span class="nt">&lt;branchRate&gt;</span>75<span class="nt">&lt;/branchRate&gt;</span>
+        <span class="nt">&lt;lineRate&gt;</span>85<span class="nt">&lt;/lineRate&gt;</span>
+        <span class="nt">&lt;totalBranchRate&gt;</span>75<span class="nt">&lt;/totalBranchRate&gt;</span>
+        <span class="nt">&lt;totalLineRate&gt;</span>85<span class="nt">&lt;/totalLineRate&gt;</span>
+        <span class="nt">&lt;packageLineRate&gt;</span>75<span class="nt">&lt;/packageLineRate&gt;</span>
+        <span class="nt">&lt;packageBranchRate&gt;</span>85<span class="nt">&lt;/packageBranchRate&gt;</span>
+        <span class="nt">&lt;regexes&gt;</span>
+            <span class="nt">&lt;regex&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>com.some.needed.package.*<span class="nt">&lt;/pattern&gt;</span>
+                <span class="nt">&lt;branchRate&gt;</span>60<span class="nt">&lt;/branchRate&gt;</span>
+                <span class="nt">&lt;lineRate&gt;</span>50<span class="nt">&lt;/lineRate&gt;</span>
+             <span class="nt">&lt;/regex&gt;</span>
+        <span class="nt">&lt;/regexes&gt;</span>
+    <span class="nt">&lt;/check&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+<h3 id="jacoco-maven-plugin">jacoco-maven-plugin</h3>
+<p>For code coverage</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.7.7.201606060606<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>report<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>prepare-package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>report<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+
+<span class="cm">&lt;!-- tolerance --&gt;</span>
+<span class="nt">&lt;execution&gt;</span>
+    <span class="nt">&lt;id&gt;</span>jacoco-check<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>check<span class="nt">&lt;/goal&gt;</span>
+    <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;rules&gt;</span>
+            <span class="nt">&lt;rule&gt;</span>
+                <span class="nt">&lt;element&gt;</span>PACKAGE<span class="nt">&lt;/element&gt;</span>
+                <span class="nt">&lt;limits&gt;</span>
+                    <span class="nt">&lt;limit&gt;</span>
+                        <span class="nt">&lt;counter&gt;</span>LINE<span class="nt">&lt;/counter&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>COVEREDRATIO<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;minimum&gt;</span>0.50<span class="nt">&lt;/minimum&gt;</span>
+                    <span class="nt">&lt;/limit&gt;</span>
+                <span class="nt">&lt;/limits&gt;</span>
+            <span class="nt">&lt;/rule&gt;</span>
+        <span class="nt">&lt;/rules&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+<span class="nt">&lt;/execution&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mvn clean verify
+</code></pre></div>
+<h3 id="maven-project-info-reports-plugin">maven-project-info-reports-plugin</h3>
+<p>Generate reports information about the project.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-project-info-reports-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.0.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;reportSets&gt;</span>
+        <span class="nt">&lt;reportSet&gt;</span>
+            <span class="nt">&lt;reports&gt;</span>
+                <span class="nt">&lt;report&gt;</span>dependencies<span class="nt">&lt;/report&gt;</span>
+                <span class="nt">&lt;report&gt;</span>project-team<span class="nt">&lt;/report&gt;</span>
+                <span class="nt">&lt;report&gt;</span>license<span class="nt">&lt;/report&gt;</span>
+            <span class="nt">&lt;/reports&gt;</span>
+        <span class="nt">&lt;/reportSet&gt;</span>
+    <span class="nt">&lt;/reportSets&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div>
+<h3 id="versions-maven-plugin">versions-maven-plugin</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>versions-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.7<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;excludes&gt;</span>
+                    <span class="nt">&lt;exclude&gt;</span>org.apache.commons:commons-collections4<span class="nt">&lt;/exclude&gt;</span>
+                <span class="nt">&lt;/excludes&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>mvn versions:display-dependency-updates
+</code></pre></div>
+<h3 id="hibernate-ehcache">hibernate-ehcache</h3>
+<p>Second-level cache. https://www.baeldung.com/hibernate-second-level-cache</p>
+<p>Provider <em>net.sf.ehcache</em></p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hibernate-ehcache<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>5.2.2.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h3 id="pending">Pending</h3>
+<ul>
+<li>hibernate-annotations</li>
+<li>org.jasypt - http://www.jasypt.org/</li>
+<li>openpojo - https://github.com/OpenPojo/openpojo</li>
+<li>commons-codec</li>
+<li>org.ehcache</li>
+<li>google-http-client - https://github.com/googleapis/google-http-java-client</li>
+<li>Mockito-core - https://www.baeldung.com/mockito-core-vs-mockito-all</li>
+<li>mockito-junit-jupiter</li>
+<li>jaxb2-maven-plugin</li>
+<li>jaxws-maven-plugin</li>
+<li>build-helper-maven-plugin</li>
+<li>Swagger-maven-plugin</li>
+<li>gson</li>
+<li>json-simple</li>
+<li>swagger-annotations</li>
+<li>org.apache.commons::commons-math3</li>
+<li>joda-time::joda-time</li>
+<li>org.json::json</li>
+<li>jackson-core</li>
+<li>jackson-databind</li>
+<li>netty-all</li>
+<li>resteasy-jackson-provider</li>
+<li>resteasy-jettison-provider</li>
+<li>resteasy-jaxb-provider</li>
+<li>resteasy-jaxrs</li>
+<li>
+<h2 id="resteasy-spring">resteasy-spring</h2>
+</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>https://maven.apache.org/index.html</li>
+<li>https://mincong-h.github.io/series/maven-plugins/</li>
+<li>https://www.baeldung.com/executable-jar-with-maven</li>
+<li>https://github.com/vert-x3/vertx-stack</li>
+<li>https://reactiverse.io/vertx-maven-plugin/</li>
+<li>https://github.com/reactiverse/vertx-maven-plugin</li>
+<li>https://github.com/vert-x3/vertx-examples</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../gradle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Gradle" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Gradle
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../git/" class="md-footer__link md-footer__link--next" aria-label="Next: Git" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Git
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Chopdas Doc Site
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.sections", "navigation.tracking", "navigation.instant", "search.highlight", "search.suggest", "search.share", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

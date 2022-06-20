@@ -1,0 +1,1804 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Git - Chopdas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../.."> 
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chopdas" class="md-header__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chopdas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gradle/" class="md-tabs__link md-tabs__link--active">
+        Developer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../jainism/aarti/" class="md-tabs__link">
+        Jainism
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        Tags
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chopdas" class="md-nav__button md-logo" aria-label="Chopdas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Chopdas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" data-md-state="indeterminate" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../..">Home</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gradle/" class="md-nav__link">
+        Gradle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maven/" class="md-nav__link">
+        Maven
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Git
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    .Gitignore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-local-repo" class="md-nav__link">
+    Working with Local Repo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-remote" class="md-nav__link">
+    Working with Remote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-command" class="md-nav__link">
+    Diff Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-command" class="md-nav__link">
+    Log Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkout-command" class="md-nav__link">
+    Checkout Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-command" class="md-nav__link">
+    Reset Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-files" class="md-nav__link">
+    Remove Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-files" class="md-nav__link">
+    Moving Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undo-things" class="md-nav__link">
+    Undo Things
+  </a>
+  
+    <nav class="md-nav" aria-label="Undo Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-committed-early" class="md-nav__link">
+    You committed early
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unstage-a-staged-file" class="md-nav__link">
+    Unstage a staged file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmodify-a-modified-file" class="md-nav__link">
+    Unmodify a modified file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-commits-permanently" class="md-nav__link">
+    Undo commits permanently
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-a-commit-and-redo" class="md-nav__link">
+    Undo a commit and redo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squashing-commits" class="md-nav__link">
+    Squashing commits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagging" class="md-nav__link">
+    Tagging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching" class="md-nav__link">
+    Branching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    Rebase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squash-commits" class="md-nav__link">
+    Squash Commits
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ssh/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssl/" class="md-nav__link">
+        OpenSSL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Jainism
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Jainism" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Jainism
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/aarti/" class="md-nav__link">
+        Aarti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/logassa-stotra/" class="md-nav__link">
+        Logassa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/uvasa-stotra/" class="md-nav__link">
+        Uvasa
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/samitis-guptis/" class="md-nav__link">
+        Samitis and Guptis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jainism/panch-maha-vratas/" class="md-nav__link">
+        Panch Maha Vratas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Tags
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tags" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tags
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        Tags index
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    .Gitignore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-local-repo" class="md-nav__link">
+    Working with Local Repo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-remote" class="md-nav__link">
+    Working with Remote
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-command" class="md-nav__link">
+    Diff Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-command" class="md-nav__link">
+    Log Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkout-command" class="md-nav__link">
+    Checkout Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset-command" class="md-nav__link">
+    Reset Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-files" class="md-nav__link">
+    Remove Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moving-files" class="md-nav__link">
+    Moving Files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undo-things" class="md-nav__link">
+    Undo Things
+  </a>
+  
+    <nav class="md-nav" aria-label="Undo Things">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#you-committed-early" class="md-nav__link">
+    You committed early
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unstage-a-staged-file" class="md-nav__link">
+    Unstage a staged file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmodify-a-modified-file" class="md-nav__link">
+    Unmodify a modified file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-commits-permanently" class="md-nav__link">
+    Undo commits permanently
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undo-a-commit-and-redo" class="md-nav__link">
+    Undo a commit and redo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squashing-commits" class="md-nav__link">
+    Squashing commits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagging" class="md-nav__link">
+    Tagging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching" class="md-nav__link">
+    Branching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    Rebase
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squash-commits" class="md-nav__link">
+    Squash Commits
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  
+
+
+
+<h1 id="git">Git</h1>
+<h3 id="setup">Setup</h3>
+<div class="highlight"><pre><span></span><code>brew install git
+git --version
+
+<span class="c1"># test ssh</span>
+ssh -T git@github.com
+</code></pre></div>
+<h3 id="basics">Basics</h3>
+<ul>
+<li><code>origin</code> -A default remote pointer to your repo on github</li>
+<li><code>master</code> - Default branch</li>
+<li><code>origin/master</code> - a remote tracking branch on local. Its hidden and is supposed to stay in sync with <code>master</code> on remote <code>origin</code>.</li>
+<li>Working directory -&gt; Staging -&gt; Head.</li>
+<li><code>add</code> updates Staging from working directory.</li>
+<li><code>reset</code> overrides Staging with last commit on Head. You undo an <code>add</code> with a <code>reset</code>.</li>
+<li><code>checkout</code> overwrites working directory with a copy from staging. You undo an edit with <code>checkout</code>.</li>
+</ul>
+<h3 id="gitignore">.Gitignore</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.gitignore_global can have .gitignore entries</span>
+
+$ cat .gitignore
+*.<span class="o">[</span>oa<span class="o">]</span>
+*~
+<span class="c1"># ignore all .a files</span>
+*.a
+<span class="c1"># but do track lib.a, even though you&#39;re ignoring .a files above</span>
+!lib.a
+<span class="c1"># only ignore the TODO file in the current directory, not subdir/TODO</span>
+/TODO
+<span class="c1"># ignore all files in any directory named build</span>
+build/
+<span class="c1"># ignore doc/notes.txt, but not doc/server/arch.txt</span>
+doc/*.txt
+<span class="c1"># ignore all .pdf files in the doc/ directory and any of its subdirectories</span>
+doc/**/*.pdf
+</code></pre></div>
+<h3 id="working-with-local-repo">Working with Local Repo</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># create local repo</span>
+mkdir &lt;dir&gt;
+<span class="nb">cd</span> &lt;dir&gt;
+git init
+
+<span class="c1"># ... make some changes</span>
+
+<span class="c1"># status</span>
+git status -s <span class="c1"># short version</span>
+git status <span class="c1"># shows which files changed</span>
+
+<span class="c1"># add</span>
+git add .  <span class="c1"># or</span>
+git add -A <span class="c1"># or</span>
+git add -i <span class="c1"># interactive</span>
+
+<span class="c1"># commit</span>
+git commit -m <span class="s1">&#39;some comment&#39;</span>
+
+<span class="c1"># Combine add and commit</span>
+git commit -a <span class="c1"># implicitly add files already existing in the last commit</span>
+</code></pre></div>
+<h3 id="working-with-remote">Working with Remote</h3>
+<blockquote>
+<p>Remote must exist before hand on Github.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># clone a remote repo</span>
+git clone &lt;your.remote.git&gt; &lt;your.output.directory&gt;
+
+<span class="c1"># later if you need to sync local from remote</span>
+git checkout main
+git fetch main
+git reset --hard origin/main <span class="c1"># resets to HEAD of remote</span>
+</code></pre></div>
+<p><strong>Connect a local repo to a remote repo:</strong></p>
+<p>Scenario: You have an empty repo on Github, and you never cloned it. But on local you have a repo that you wish to connect to this empty repo.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> local_repo
+git remote add origin https://your.remote.git <span class="c1"># link local to remote</span>
+
+<span class="c1"># or the below two achieve the same result</span>
+git push -u origin main  <span class="c1"># first time link to remote and push to remote</span>
+<span class="c1"># git push --set-upstream origin main (not needed)</span>
+</code></pre></div>
+<p>Scenario: Fork someone's repo into your repo.</p>
+<ol>
+<li>You fork original repo to your repo</li>
+<li>
+<p>You clone your repo to local. A default remote "origin" is created</p>
+</li>
+<li>
+<p>You want to add another remote to your local - lets call is upstream</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git remote add upstream https://original.repo.git
+</code></pre></div>
+<p>Scenario: Create a remote branch and then use it locally</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># first create the remote branch named new-feature</span>
+git checkout -b new-feature from-branch
+</code></pre></div>
+<p>Scenario: Create a local branch and then push to remote</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># from-branch is optional. If not provided, git assumes current branch</span>
+git checkout -b new-feature from-branch
+git branch -vv <span class="c1"># won&#39;t show a tracking branch for new-feature</span>
+
+<span class="c1"># -u requires first time only</span>
+git push -u origin new-feature <span class="c1"># or..</span>
+git push -u origin HEAD
+
+git branch -vv <span class="c1"># now shows a tracking branch for new_branch</span>
+</code></pre></div>
+<p>Scenario: You have a local folder <code>dev</code> which is not yet tracked against an existing remote branch</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> dev
+git checkout --track origin/dev <span class="c1"># or</span>
+git branch -u origin/dev
+</code></pre></div>
+<p>Misc commands</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># show remote servers configured on local</span>
+git remote <span class="c1"># by default it would show origin</span>
+git remote -v
+git remote -vv <span class="c1"># also include tracking branches on local</span>
+git remote show &lt;remote&gt; <span class="c1"># inspecting a remote</span>
+
+<span class="c1"># rename a remote</span>
+git remote rename &lt;old_name&gt; &lt;new_name&gt;
+
+<span class="c1"># remove a remote</span>
+git remote remove &lt;remote_to_be_removed&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># use alias on git config</span>
+git config --global alias.pushd <span class="s2">&quot;push -u origin HEAD&quot;</span>
+git <span class="nb">pushd</span>
+<span class="c1"># use alias on bash</span>
+<span class="nb">alias</span> <span class="nv">gp</span><span class="o">=</span><span class="s1">&#39;git push -u origin HEAD&#39;</span>
+gp
+
+
+<span class="c1"># fetch and pull</span>
+git fetch &lt;remote_repo_name&gt; <span class="c1"># fetch and pull from remote into staging</span>
+git pull <span class="c1"># fetches and merges into working directory</span>
+</code></pre></div>
+<p><code>push</code> works only if you cloned from a server to which you have write access and nobody has pushed in the meantime. Since remote is a moving branch, its possible that the push to include your local changes on remote may fail. Read #Checkout for more details. Here is how you address it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Refresh the tracking branch. This is a remote tracking branch on local</span>
+git fetch origin master
+
+<span class="c1"># Integrate our changes with remote changes</span>
+git rebase origin/master
+
+<span class="c1"># The above two commands can be combined into one command</span>
+git pull --rebase origin master
+
+<span class="c1"># Finally attempt the push to remote again</span>
+git push origin master
+</code></pre></div>
+<h3 id="diff-command">Diff Command</h3>
+<div class="highlight"><pre><span></span><code>git diff <span class="c1"># diff between Working directory and Staging</span>
+git diff --cached <span class="c1"># diff between Staging and HEAD</span>
+git diff --staged <span class="c1"># what&#39;s in Staging which will go to Head on next commit. This will not show all changes, only what is staged.</span>
+
+<span class="c1"># diff between some-branch and Working directory</span>
+git diff &lt;source_branch&gt; &lt;target_branch&gt;
+git diff &lt;some-branch&gt;
+git diff HEAD
+
+<span class="c1"># diff between two commits</span>
+git diff first-commit last-commit
+</code></pre></div>
+<h2 id="log-command">Log Command</h2>
+<blockquote>
+<p>By default, <code>git log</code> will only show commit history of the branch you have checked out.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>git log <span class="c1"># too long</span>
+git log -p -2 <span class="c1"># shows last 2 commit details</span>
+git log --since<span class="o">=</span><span class="m">2</span>.weeks <span class="c1"># list of commits in last two weeks</span>
+<span class="c1"># you can specify &quot;2008-01-15&quot;, &quot;2 years 1 day 3 minutes ago&quot;</span>
+git log --stat
+
+git log --pretty<span class="o">=</span>oneline <span class="c1"># compressed log view</span>
+git log --oneline --decorate <span class="c1"># shows where the branch pointers are pointing</span>
+git log --pretty<span class="o">=</span>format:<span class="s2">&quot;%h %s&quot;</span> --graph
+git log --oneline --decorate --graph --all
+git log --pretty<span class="o">=</span>format <span class="c1"># shows format help</span>
+git log --pretty<span class="o">=</span>format:<span class="s2">&quot;%h - %an, %ar : %s&quot;</span>
+git log --author<span class="o">=</span>bob <span class="c1"># commits by certain author</span>
+git log --graph --oneline --decorate --all <span class="c1"># decorated</span>
+git log --name-status <span class="c1"># which files have changed</span>
+git log --since<span class="o">=</span><span class="m">2</span>.weeks <span class="c1"># --before, --after, --until</span>
+git log --since<span class="o">=</span><span class="s2">&quot;2 years 1 day 3 minutes ago&quot;</span>
+
+<span class="c1"># commits but not merged</span>
+git log --pretty<span class="o">=</span><span class="s2">&quot;%h - %s&quot;</span> --author<span class="o">=</span><span class="s1">&#39;Junio C Hamano&#39;</span> --since<span class="o">=</span><span class="s2">&quot;2008-10-01&quot;</span> --before<span class="o">=</span><span class="s2">&quot;2008-11-01&quot;</span> --no-merges -- t
+</code></pre></div>
+<h2 id="checkout-command">Checkout Command</h2>
+<p>When dealing with a branch (say, <code>master</code>) copied from a remote repository (say, <code>origin</code>), there are <em>three</em> branches one must consider:</p>
+<ol>
+<li>The copy of <code>master</code> in the local repository</li>
+<li>The copy of <code>master</code> in the remote repository</li>
+<li>The local branch <code>origin/master</code> that records the last known position of the remote branch. Branch 3 tracks (tracking branch) the remote branch, not because it is itself a remote branch, its a local copy of the remote branch.</li>
+</ol>
+<p>The <code>fetch</code> command copies branch (2) to (3).</p>
+<div class="highlight"><pre><span></span><code>git fetch origin master
+</code></pre></div>
+<p>The <code>checkout</code> command copies branch [3] to [1].</p>
+<div class="highlight"><pre><span></span><code>git checkout master
+</code></pre></div>
+<p>The <code>push</code> command copies branch (1) to (2), and incidentally updates (3) to match with (2).</p>
+<div class="highlight"><pre><span></span><code>git push origin master
+</code></pre></div>
+<p>Copy files from Head or Staging to the Working Directory, and to optionally switch branches.</p>
+<ul>
+<li>If the commit name is provided, the files are copied from commit to staging and wd.</li>
+<li>If commit name is not provided, the files are copied from staging to wd.</li>
+</ul>
+<h2 id="reset-command">Reset Command</h2>
+<p>Moves the current branch to another position, and optionally updates the stage and the working directory. It also is used to copy files from the history to the stage without touching the working directory.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># default to HEAD and copies to staging, doesn&#39;t touch wd</span>
+git reset
+
+<span class="c1"># default to HEAD and copies only the mentioned files into staging, doesn&#39;t touch the wd</span>
+git reset -- files
+
+<span class="c1"># default to HEAD and copies to staging and wd</span>
+git reset --head
+
+<span class="c1"># HEAD~3 means N-3 commit.</span>
+git reset HEAD~3 <span class="c1"># copies history into staging only</span>
+git reset HEAD~3 --hard <span class="c1"># copies history into staging and wd</span>
+git reset HEAD~3 --soft <span class="c1"># simply moves the HEAD, doesn&#39;t copy to staging or wd</span>
+</code></pre></div>
+<h2 id="remove-files">Remove Files</h2>
+<p>To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit. The <code>git rm</code> command does that, and also removes the file from your working directory so you don’t see it as an untracked file the next time around.</p>
+<div class="highlight"><pre><span></span><code>rm &lt;file&gt; <span class="c1"># removes untracked files or files in WD, but not in S</span>
+git rm &lt;file&gt; <span class="c1"># removes from staging and working directory</span>
+git rm --cached FILENAME <span class="c1"># remove from staging, retain in working directory</span>
+git commit -f <span class="c1"># file is gone</span>
+
+git rm log/<span class="se">\*</span>.log <span class="c1"># removes all files with .log extension</span>
+git rm <span class="se">\*</span>~ <span class="c1"># removes all files ending in ~</span>
+</code></pre></div>
+<h2 id="moving-files">Moving Files</h2>
+<p>Git does not explicitly track file movement. If you rename a file in Git, no metadata is stored in Git that tells it you renamed the file. However, Git is pretty smart about figuring that out after the fact.</p>
+<div class="highlight"><pre><span></span><code>git mv file_from file_to
+
+<span class="c1"># above is equivalent to following</span>
+mv file_from file_to
+git rm file_from
+git add file_to
+</code></pre></div>
+<h2 id="undo-things">Undo Things</h2>
+<h3 id="you-committed-early">You committed early</h3>
+<p>If you commit and then realize that you forgot to stage the changes in a file you wanted to add to this commit, you can:</p>
+<div class="highlight"><pre><span></span><code>git commit -m <span class="s1">&#39;Initial commit&#39;</span> <span class="c1"># some file(s) forgotten.</span>
+git add &lt;forgotten_files&gt;
+git commit --amend
+</code></pre></div>
+<h3 id="unstage-a-staged-file">Unstage a staged file</h3>
+<p>Let’s say you’ve changed two files and want to commit them as two separate changes, but you accidentally type <code>git add *</code> and stage them both. How can you unstage one of the two?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># file-a and file-b added to Staging</span>
+git add *
+
+<span class="c1"># unstage file-b</span>
+git reset HEAD file-b
+
+<span class="c1"># file-a is committed</span>
+git commit -m
+
+<span class="c1"># stage file-b</span>
+git add file-b
+
+<span class="c1"># commit file-b as a separate commit</span>
+git commit -m
+</code></pre></div>
+<h3 id="unmodify-a-modified-file">Unmodify a modified file</h3>
+<p>You realize that you don’t want to keep your changes to the <code>file-b</code>? How can you revert it back to what it looked like when you last committed</p>
+<div class="highlight"><pre><span></span><code>git checkout -- file-b
+</code></pre></div>
+<h3 id="undo-commits-permanently">Undo commits permanently</h3>
+<div class="highlight"><pre><span></span><code>git commit ... <span class="c1"># mistake(s)</span>
+<span class="c1"># The last three commits HEAD, HEAD-1, HEAD-2 are bad and you don&#39;t want to commit them again.</span>
+git reset --hard HEAD~3 <span class="c1"># T</span>
+</code></pre></div>
+<h3 id="undo-a-commit-and-redo">Undo a commit and redo</h3>
+<div class="highlight"><pre><span></span><code>git commit ... <span class="c1"># mistake</span>
+git reset --soft HEAD^
+<span class="c1"># make the edits</span>
+git commit -a -c ORIG_HEAD
+</code></pre></div>
+<h3 id="squashing-commits">Squashing commits</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># you are in &lt;my-feature&gt;</span>
+git fetch origin
+git reset --soft origin/master <span class="c1"># Moves HEAD to last commit of Remote</span>
+git commit
+git push origin feature/&lt;my-feature&gt; -f <span class="c1"># fix the error</span>
+</code></pre></div>
+<h2 id="tagging">Tagging</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># list</span>
+git tag
+git tag -l <span class="s2">&quot;v1.8.5*&quot;</span> <span class="c1"># shows only tags with v1.8.5.*</span>
+
+<span class="c1"># create tag</span>
+git tag -a v1.4 -m <span class="s2">&quot;tag comment&quot;</span>
+git tag
+
+<span class="c1"># lightweigh tag, only stores checksum</span>
+git tag v1.4-lw
+git tag
+git show v1.4-lw
+
+<span class="c1"># tag a previous commit</span>
+git tag -a v1.4 &lt;some-prefix-of-commit-checksum&gt;
+git tag -a v1.4 9fceb02
+
+<span class="c1"># push tag</span>
+git push &lt;remotename&gt; &lt;tagname&gt;
+git push origin v1.4 <span class="c1"># a generic git push will not push tag</span>
+
+<span class="c1"># delete tag</span>
+git tag -d v1.4-lw <span class="c1"># delete from local</span>
+git push origin --delete v1.4 <span class="c1"># delete from remote</span>
+
+<span class="c1"># checkout tag</span>
+git checkout v1.4 <span class="c1"># just for exploration and discarding</span>
+git checkout -b version2 v1.4
+</code></pre></div>
+<h2 id="branching">Branching</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># creates the &#39;master&#39; branch in the &#39;origin&#39; repo that will be created on local</span>
+git init
+
+<span class="c1"># create a new branch (two commands)</span>
+git branch new_branch_name <span class="c1"># create</span>
+git checkout new_branch_name <span class="c1"># switch to it</span>
+
+<span class="c1"># create a branch (combined into single command)</span>
+git checkout -b new_branch_name <span class="c1"># create and switch</span>
+git branch -vv <span class="c1"># check tracking branches on local</span>
+
+<span class="c1"># example: simple flow</span>
+<span class="c1"># feature branch</span>
+git checkout main
+<span class="c1"># or</span>
+git checkout main
+git fetch main
+git reset --hard origin/main <span class="c1"># resets to HEAD of remote</span>
+
+git checkout -b feature-branch <span class="c1"># new feature branch</span>
+vim index.html
+git commit -a -m <span class="s2">&quot;create new footer&quot;</span>
+
+<span class="c1"># hotfix</span>
+git checkout main
+git checkout -b hotfix <span class="c1"># new hotfix branch</span>
+vim index.html
+git commit -a -m <span class="s2">&quot;fix email address&quot;</span>
+git checkout main
+git merge hotfix <span class="c1"># merge hotfix branch into main</span>
+git branch -d hotfix
+
+<span class="c1"># continue on feature branch</span>
+git checkout feature-branch
+vim index.html
+git commit -a -m <span class="s2">&quot;finish the new footer&quot;</span>
+git checkout main
+git merge feature-branch <span class="c1"># no merge conflict</span>
+<span class="c1"># if merge conflict, update index.html on main</span>
+git add index.html
+git commit -m <span class="s2">&quot;Final commit&quot;</span>
+git branch -d feature-branch
+
+<span class="c1">##### Merge A into B</span>
+git checkout B
+git fetch A
+git merge A
+<span class="c1"># or</span>
+git checkout B
+git pull A <span class="c1"># does the fetch and merge</span>
+
+<span class="c1"># example: create a branch from main and push the branch to remote</span>
+git pull origin main <span class="c1"># Make sure local repo matches with remote</span>
+git checkout -b &lt;new-branch-name&gt; <span class="c1"># create branch and switch to it</span>
+git push origin &lt;new-branch-name&gt;
+
+<span class="c1"># another feature example</span>
+git checkout -b feature-branch main
+git status
+git add &lt;some-files&gt;
+git commit
+git push -u origin my-feature
+<span class="c1"># more changes</span>
+git push
+
+<span class="c1"># merge after PR</span>
+git checkout main
+git pull
+git pull origin feature-branch
+git push
+
+<span class="c1"># management</span>
+<span class="c1"># if you don&#39;t see all remote branches on local then run:</span>
+git remote update
+
+git branch <span class="c1"># list of current branches</span>
+git branch -all
+git branch -a
+git branch -v <span class="c1"># last commit on each branch</span>
+git branch --merged <span class="c1"># list of branches merged into the branch you&#39;re on.</span>
+git branch --no-merged <span class="c1"># list of branches you haven&#39;t yet merged in.</span>
+git branch --no-merged master <span class="c1"># list of branches not merged into the master</span>
+git branch -av
+git branch -avv <span class="c1"># which remote branches are linked to your local branch</span>
+git remote -v <span class="c1"># what remote branches exist</span>
+
+<span class="c1"># rename branch</span>
+git branch --move old_branch_name new_branch_name <span class="c1"># rename branch on local</span>
+git push &lt;remotename&gt; &lt;localbranchname&gt;:&lt;remotebranchname&gt;
+git push --set-upstream origin new_branch_name <span class="c1"># add new branch on remote</span>
+git push origin --delete old_branch_name <span class="c1"># delete old branch on remote</span>
+
+<span class="c1"># delete branch</span>
+git branch -d my-branch <span class="c1"># local</span>
+git push &lt;remotename&gt; --delete &lt;branchname&gt; <span class="c1"># remote</span>
+
+<span class="c1"># create a branch and push to remote</span>
+ git checkout -b my-branch  <span class="c1"># create branch and switch to it</span>
+ git push -u origin my-branch <span class="c1"># push to remote</span>
+
+<span class="c1"># make changes, git add, git commit -m etc...</span>
+<span class="c1"># push the branch to remote for others to see</span>
+ git push &lt;remotename&gt; &lt;branchname&gt;:&lt;branchname&gt; <span class="c1"># first time</span>
+ git push -u origin my-branch &lt;can be master&gt;
+
+<span class="c1"># remote branches</span>
+ git ls-remote &lt;remote&gt; <span class="c1"># list of remote branches</span>
+ git remote show &lt;remote&gt;
+
+<span class="c1"># synchronize local from remote, will only change S, not WD</span>
+git fetch &lt;remote&gt;
+git fetch origin
+
+<span class="c1"># synchronize local from remote, change S and WD</span>
+git pull
+<span class="c1"># same as</span>
+git fetch
+git merge
+
+<span class="c1"># push branch to remote</span>
+git push &lt;remote&gt; &lt;local_branch&gt;
+git push origin my_branch
+
+<span class="c1"># someone else</span>
+git fetch origin <span class="c1"># will get origin/my_branch on local</span>
+git checkout -b copy_of_my_branch origin/my_branch <span class="c1"># now has a local branch</span>
+
+<span class="c1"># delete remote branch</span>
+git push origin --delete mybranch
+
+<span class="c1"># drop all changes in local</span>
+git fetch origin <span class="c1"># fetch latest</span>
+git reset --hard origin/master <span class="c1"># switch local master to it</span>
+
+<span class="c1"># replace some local changes, not everything</span>
+git checkout --&lt;filename&gt;
+
+<span class="c1"># copies last commit to both Staging and WD</span>
+git checkout HEAD -- files
+
+<span class="c1"># switches Working directory  and Staging to last commit in HEAD</span>
+git checkout HEAD
+
+<span class="c1"># pushing local dev branch to master</span>
+git push origin dev:master
+
+<span class="c1"># update local with newest commit</span>
+git pull <span class="c1"># this does fetch and merge</span>
+
+<span class="c1">#merge another branch to your branch</span>
+git merge &lt;branch&gt;
+
+<span class="c1"># pulling a different branch to local</span>
+git pull origin master:dev
+
+<span class="c1"># rebasing - integrate changes from one branch into another</span>
+<span class="c1"># use merge or rebase which provides cleaner history</span>
+</code></pre></div>
+<h2 id="rebase">Rebase</h2>
+<p>There are two main ways to integrate changes from one branch into another: the <code>merge</code> and the <code>rebase</code>. The <code>rebase</code> offers a cleaner history, while the <code>merge</code> will offer full transparency.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># experiment has C4 made on C2</span>
+<span class="c1"># master has C3 made on C2</span>
+<span class="c1"># C2 is the common ancestor</span>
+git checkout experiment
+git rebase master <span class="c1"># Add experiment to master on C3</span>
+
+<span class="c1"># above two commands can be replaced with</span>
+git rebase master experiment
+
+<span class="c1"># merge</span>
+git checkout master <span class="c1"># new changes are on existing commit C3</span>
+git merge experiment <span class="c1"># master + experiment are now on C4</span>
+</code></pre></div>
+<p><img alt="images/image-20200909230211855.png" src="images/image-20200909230211855.png" /></p>
+<p><img alt="images/image-20200909230236102.png" src="images/image-20200909230236102.png" /></p>
+<p><img alt="images/image-20200909230253065.png" src="images/image-20200909230253065.png" /></p>
+<h2 id="squash-commits">Squash Commits</h2>
+<p>Take some smaller commits and combine them into larger ones.</p>
+<blockquote>
+<p>Only do this on commits that have not been pushed to remote repo.</p>
+</blockquote>
+<p>Example: Rebase using the last 4 commits from where the <code>HEAD</code> is with <code>HEAD-4</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># assume you have 4 commits on local.</span>
+git rebase -i HEAD <span class="m">4</span> <span class="c1"># Rebase using last 4 commits from where HEAD</span>
+</code></pre></div>
+<p><img alt="images/image-20210118193911270.png" src="images/image-20210118193911270.png" /></p>
+<p><img alt="image-20210118194151892" src="images/image-20210118194151892.png" /></p>
+<p><img alt="image-20210118194151892" src="images/image-20210118194151892.png" /></p>
+<p>User enters pick on first and squash on the next to combine all 4 commits into the first commit in the list.</p>
+<p><img alt="images/image-20210118194347704.png" src="images/image-20210118194347704.png" /></p>
+<p>And we can enter a new commit message.</p>
+<h1 id="forking">Forking</h1>
+<p>Entities:</p>
+<ul>
+<li>original repo</li>
+<li>your repo (fork of original)</li>
+</ul>
+<p>High-level flow:</p>
+<ol>
+<li>Fork the original repo and create your repo</li>
+<li>Clone your repo to your local system</li>
+<li>Add a Git remote to point to the original repo</li>
+<li>Create a feature branch in your report to place your changes</li>
+<li>Make changes to the new branch</li>
+<li>Keep your fork in sync</li>
+<li>Commit the changes to the branch</li>
+<li>Push the branch to your repo</li>
+<li>Open a pull request from the new branch to the original repo</li>
+<li>Clean up after your pull request is merged into the original rep</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># after forking</span>
+
+<span class="c1"># clone your repo to local system</span>
+git clone https://your.repo.git
+
+<span class="c1"># Add a remote called &quot;upstream&quot; pointing to original repo</span>
+<span class="c1"># Git has already added a remote &quot;origin&quot; to the clone on your local system</span>
+<span class="c1"># and this allows you to push changes back to your report on github</span>
+git remote add upstream https://original.repo.git
+
+<span class="c1"># Know that above is useful only if you can directly push from local to original repo such as git push upstream. Most likely original repo will not allow these writes.</span>
+
+<span class="c1"># work in a branch</span>
+git checkout -b &lt;new branch name&gt; <span class="c1"># assume name is &quot;new-feature&quot;</span>
+
+<span class="c1"># do some changes</span>
+git add ...
+git commit ...
+git rebase ... <span class="c1"># squash your commits</span>
+git push origin new-feature <span class="c1"># adds the branch to your report</span>
+
+<span class="c1"># keep your fork in sync</span>
+git pull upstream master <span class="c1"># pull into local from original repo</span>
+git push origin master <span class="c1"># push changes to your repo</span>
+
+<span class="c1"># now open a PR to original repo</span>
+<span class="c1"># original repo author accepts your changes and merges them into the main repo</span>
+
+<span class="c1"># update your repo with the latest from original repo</span>
+git pull upstream master
+
+<span class="c1"># delete your branch</span>
+git branch -d new-feature
+git push origin master
+<span class="c1"># push the deletion of the feature branch on your repo</span>
+git push --delete origin new-feature
+</code></pre></div>
+<h1 id="merging">Merging</h1>
+<p>Confirm the receiving branch.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ensure HEAD is pointing to correct merge receiving branch</span>
+git status
+
+git checkout &lt;receiving&gt; <span class="c1"># i.e.</span>
+git checkout master
+</code></pre></div>
+<p>Make sure the receiving and the from (merging) branch have the latest commits</p>
+<div class="highlight"><pre><span></span><code>git fetch
+git pull
+</code></pre></div>
+<p>Merge now</p>
+<div class="highlight"><pre><span></span><code>git merge &lt;from-branch&gt;
+</code></pre></div>
+<p>Example of a fast-forward merge:</p>
+<div class="highlight"><pre><span></span><code>git checkout -b new-feature master
+git add &lt;files&gt;
+git commit -m <span class="s2">&quot;some comment&quot;</span>
+
+git checkout master
+git merge new-feature <span class="c1"># or</span>
+git merge --no-ff new-feature
+
+git branch -d new-feature
+</code></pre></div>
+<p>Example of a three-way merge:</p>
+<div class="highlight"><pre><span></span><code>git checkout -b new-feature master
+<span class="c1"># edit some files in new-feature</span>
+git add &lt;files&gt;
+git commit -m <span class="s2">&quot;some comment&quot;</span>
+
+git checkout master
+<span class="c1"># edit some files in master</span>
+git add &lt;files&gt;
+git commit -m <span class="s2">&quot;some comment&quot;</span>
+
+<span class="c1"># Merge in the new-feature branch</span>
+git merge new-feature
+git branch -d new-feature
+</code></pre></div>
+<h1 id="git-config">Git Config</h1>
+<div class="highlight"><pre><span></span><code>git config --global user.name <span class="s2">&quot;John Doe&quot;</span>
+git config --global user.email johndoe@example.com
+git config color.ui <span class="nb">true</span>
+git config format.pretty oneline
+git <span class="nb">help</span> config
+</code></pre></div>
+<h1 id="pull-request">Pull Request</h1>
+<p>To create a PR, you must have the changes committed to the branch.</p>
+<p>https://yangsu.github.io/pull-request-tutorial/</p>
+<p>https://hackernoon.com/how-to-git-pr-from-the-command-line-a5b204a57ab1</p>
+<h1 id="file-status">File status</h1>
+<p>File status: <code>untracked</code>, <code>unmodified</code>, <code>modified</code>, <code>staged</code>.</p>
+<ul>
+<li><code>untracked</code> is a new file not in previous commit snapshot. <code>untracked</code> gets tracked only after add.</li>
+<li>add: moves file from <code>untracked</code> to <code>staged</code></li>
+<li>edit: moves file from <code>unmodified</code> to <code>modified</code></li>
+<li>add: moves file from <code>modified</code> to <code>staged</code></li>
+<li>commit: moves file from <code>staged</code> to <code>unmodified</code></li>
+<li>remove: moves file from <code>unmodified</code> to <code>untracked</code></li>
+</ul>
+<h1 id="standard-practice">Standard practice</h1>
+<ul>
+<li>Two main branches: <code>origin</code>, and <code>develop</code></li>
+<li>Multiple supporting branches: <code>features</code>, <code>release-*</code>, and <code>hotfix-*</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># create feature branch from develop</span>
+git checkout -b myfeature develop
+
+<span class="c1"># feature is now stable and ready to move forward</span>
+git checkout develop
+git merge --no-ff myfeature
+
+<span class="c1"># push develop</span>
+git push origin develop <span class="c1"># pushes branch develop to remote origin</span>
+git push origin dev:master <span class="c1"># optionally pushes local branch to remote&#39;s master branch</span>
+
+<span class="c1"># create release branch on develop</span>
+git checkout -b release-1.2 develop
+
+<span class="c1"># release is now stable</span>
+git checkout master
+git merge --no-ff release-1.2
+git tag -a <span class="m">1</span>.2
+
+<span class="c1"># the changes done in release need to be available to develop</span>
+git checkout develop
+git merge --no-ff release-1.2
+
+<span class="c1"># delete release 1.2</span>
+git branch -d release-1.2 <span class="c1"># delete on local</span>
+git push origin --delete release-1.2 <span class="c1"># delete on remote</span>
+
+<span class="c1"># create hotfix on master</span>
+git checkout -b hotfix-1.2.1 master
+
+<span class="c1"># do some work on hotfix</span>
+git commit -a -m <span class="s2">&quot;some hot fix into 1.2.1&quot;</span>
+git checkout master
+git merge --no-ff hotfix-1.2.1
+git tag -a <span class="m">1</span>.2.1
+git tag <span class="m">1</span>.2.1 1b2e1d63ff <span class="c1"># first 10 of the commit id</span>
+
+<span class="c1"># changes done in hotfix need to be available to develop</span>
+git checkout develop
+git merge --no-ff hotfix-1.2.1
+
+<span class="c1"># delete local branch of hotfix</span>
+git branch -d hotfix-1.2.1
+<span class="c1"># delete remote branch of hotfix</span>
+git push origin --delete hotfix-1.2.1
+</code></pre></div>
+<h1 id="bash-alias">Bash alias</h1>
+<div class="highlight"><pre><span></span><code>grbi    - git rebase -i master
+git rebase -i --autosquash
+gcane - git commit -amend --no-edit
+grbc    - git rebase --continue
+push    - git push origin `git rev-parse --abbrev-ref HEAD`
+gll     - git log --oneline --decorate
+gcf     - git commit --fixup &lt;commit&gt;
+
+# ~/.gitignore_global can have .gitignore entries
+</code></pre></div>
+<h1 id="reference">Reference</h1>
+<p>http://marklodato.github.io/visual-git-guide/index-en.html</p>
+<p>https://hackernoon.com/git-push-and-pull-tips-and-tricks-7f9163539f02</p>
+<p>https://ohshitgit.com/</p>
+<p>https://git-scm.com/book/en/v2</p>
+<p><a href="https://careerkarma.com/blog/git-push/#:~:text=The%20git%20push%20command%20is,local%20copy%20of%20a%20repository.">Git Push</a></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../maven/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Maven" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Maven
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ssh/" class="md-footer__link md-footer__link--next" aria-label="Next: SSH" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SSH
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Chopdas Doc Site
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.sections", "navigation.tracking", "navigation.instant", "search.highlight", "search.suggest", "search.share", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
