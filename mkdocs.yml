@@ -70,6 +70,12 @@ nav:
     - index.md
     #- Getting Started: getting-started.md
     #- Navigation Features: navigation-features.md
+  - Developer:
+    - Gradle: developer/gradle.md
+    - Maven: developer/maven.md
+    - Git: developer/git.md
+    - SSH: developer/ssh.md
+    - OpenSSL: developer/openssl.md
   - Jainism:
     - Aarti: jainism/aarti.md
     - Logassa: jainism/logassa-stotra.md
