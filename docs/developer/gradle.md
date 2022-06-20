@@ -1,4 +1,7 @@
-# Gradle
+---
+tags:
+  - build
+---
 
 ### Install
 

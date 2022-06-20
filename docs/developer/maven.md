@@ -1,4 +1,7 @@
-# Maven
+---
+tags:
+  - build
+---
 
 ## Generating project
 

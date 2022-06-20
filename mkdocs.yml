@@ -71,15 +71,20 @@ nav:
     #- Getting Started: getting-started.md
     #- Navigation Features: navigation-features.md
   - Developer:
-    - Gradle: developer/gradle.md
-    - Maven: developer/maven.md
-    - Git: developer/git.md
-    - SSH: developer/ssh.md
-    - OpenSSL: developer/openssl.md
+    - Bits algorithm: developer/bits-algos.md
+    - Regular expressions: developer/regr-exp.md
+    - Build:
+      - Git: developer/git.md
+      - Gradle: developer/gradle.md
+      - Maven: developer/maven.md
+    - Security:
+      - OpenSSL: developer/openssl.md
+      - SSH: developer/ssh.md
   - Jainism:
-    - Aarti: jainism/aarti.md
-    - Logassa: jainism/logassa-stotra.md
-    - Uvasa: jainism/uvasa-stotra.md
+    - Stotra:
+      - Aarti: jainism/aarti.md
+      - Logassa: jainism/logassa-stotra.md
+      - Uvasa: jainism/uvasa-stotra.md
     - Samitis and Guptis: jainism/samitis-guptis.md
     - Panch Maha Vratas: jainism/panch-maha-vratas.md
   - Tags:
