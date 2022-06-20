@@ -1519,9 +1519,9 @@ git rebase master experiment
 git checkout master <span class="c1"># new changes are on existing commit C3</span>
 git merge experiment <span class="c1"># master + experiment are now on C4</span>
 </code></pre></div>
-<p><img alt="images/image-20200909230211855.png" src="images/image-20200909230211855.png" /></p>
-<p><img alt="images/image-20200909230236102.png" src="images/image-20200909230236102.png" /></p>
-<p><img alt="images/image-20200909230253065.png" src="images/image-20200909230253065.png" /></p>
+<p><img alt="images/image-20200909230211855.png" src="../images/image-20200909230211855.png" /></p>
+<p><img alt="images/image-20200909230236102.png" src="../images/image-20200909230236102.png" /></p>
+<p><img alt="images/image-20200909230253065.png" src="../images/image-20200909230253065.png" /></p>
 <h2 id="squash-commits">Squash Commits</h2>
 <p>Take some smaller commits and combine them into larger ones.</p>
 <blockquote>
@@ -1531,11 +1531,11 @@ git merge experiment <span class="c1"># master + experiment are now on C4</span>
 <div class="highlight"><pre><span></span><code><span class="c1"># assume you have 4 commits on local.</span>
 git rebase -i HEAD <span class="m">4</span> <span class="c1"># Rebase using last 4 commits from where HEAD</span>
 </code></pre></div>
-<p><img alt="images/image-20210118193911270.png" src="images/image-20210118193911270.png" /></p>
-<p><img alt="image-20210118194151892" src="images/image-20210118194151892.png" /></p>
-<p><img alt="image-20210118194151892" src="images/image-20210118194151892.png" /></p>
+<p><img alt="images/image-20210118193911270.png" src="../images/image-20210118193911270.png" /></p>
+<p><img alt="image-20210118194151892" src="../images/image-20210118194151892.png" /></p>
+<p><img alt="image-20210118194151892" src="../images/image-20210118194151892.png" /></p>
 <p>User enters pick on first and squash on the next to combine all 4 commits into the first commit in the list.</p>
-<p><img alt="images/image-20210118194347704.png" src="images/image-20210118194347704.png" /></p>
+<p><img alt="images/image-20210118194347704.png" src="../images/image-20210118194347704.png" /></p>
 <p>And we can enter a new commit message.</p>
 <h1 id="forking">Forking</h1>
 <p>Entities:</p>
